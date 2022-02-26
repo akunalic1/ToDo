@@ -1,0 +1,40 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "My title",
+      "text": "Some todo item",
+      "created-At": "11-11-2021",
+      "status": "important",
+      "comment": "This should be completed in 3 days",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "My title",
+      "text": "Some todo item",
+      "created-At": "11-11-2021",
+      "status": "default",
+      "comment": "",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "title": "My title",
+      "text": "Some todo item",
+      "created-At": "11-11-2021",
+      "status": "urgent",
+      "comment": "",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "title": "My title",
+      "text": "Some todo item",
+      "created-At": "11-11-2021",
+      "status": "low-priority",
+      "comment": "",
+      "completed": false
+    }
+  ]
+}
