@@ -1,0 +1,14 @@
+:root {
+  --light-green: #abd699;
+  --light-lemon: #fce469;
+  --coral-green: #73c9b7;
+  --soft-gray: #c7dfcd;
+  --dark-blue: #15123f;
+
+  --urgent-red: #f7241d;
+  --default-yellow: #fddc01;
+  --low-priority-gray: rgb(136, 136, 136);
+  --important-green: #00ad42;
+
+  --font-spartan: "League Spartan", sans-serif;
+}
