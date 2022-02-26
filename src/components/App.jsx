@@ -1,7 +1,21 @@
 import React from "react";
+import Sidebar from "./Sidebar";
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <>
+      {/*
+       * sidebar
+       */}
+      <Sidebar />
+      {/*
+       * input field
+       */}
+      {/*
+       * todolist
+       */}
+    </>
+  );
 };
 
 export default App;

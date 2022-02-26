@@ -12,3 +12,27 @@
 
   --font-spartan: "League Spartan", sans-serif;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /*  background: linear-gradient(
+    45deg,
+    var(--light-green) 5%,
+    var(--coral-green) 75%
+  );
+  background-repeat: no-repeat;
+  */
+  height: 100vh;
+  background-color: rgb(238, 238, 232);
+}
+.glass {
+  background: rgba(255, 255, 255, 0.207);
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.3px);
+}
