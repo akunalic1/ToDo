@@ -48,6 +48,16 @@ input:focus {
   display: flex;
   flex-direction: column;
 }
+.fields-buttons {
+  gap: 0.7rem;
+  display: flex;
+}
+.btn-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
 .create-status,
 .status-btns {
   display: flex;

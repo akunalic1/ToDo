@@ -3,7 +3,11 @@ import "./../css/todoWorkspace.css";
 import "./../css/forAll.css";
 import TodoList from "./TodoList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose, faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faClose,
+  faPlus,
+  faAngleDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 const TodoWorkspace = ({ collection }) => {
   const [showAddTask, setShowAddTask] = useState(true);
@@ -15,7 +19,7 @@ const TodoWorkspace = ({ collection }) => {
   const renderInputFields = () => {
     return (
       <div className="fields">
-        <div>
+        <div className="fields-buttons">
           <button
             className={`btn add-task-btn glass ${!showAddTask ? "hide" : ""}`}
             onClick={handleShowHideInputs}
@@ -25,6 +29,15 @@ const TodoWorkspace = ({ collection }) => {
               className="add-task-icon"
             ></FontAwesomeIcon>
             Add a task
+          </button>
+          <button
+            className={`btn btn-filter glass ${!showAddTask ? "hide" : ""}`}
+          >
+            Filter
+            <FontAwesomeIcon
+              icon={faAngleDown}
+              className="add-task-icon"
+            ></FontAwesomeIcon>
           </button>
         </div>
         <div className={`create-todo glass ${showAddTask ? "hide" : ""}`}>
