@@ -12,30 +12,39 @@ import React from "react";
 
 import "./../css/sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ setCollection }) => {
   const renderCollections = () => {
     return (
       <div className="collections">
-        <div className="item  glass">
+        <button
+          onClick={(e) => setCollection("School")}
+          className="item  glass"
+        >
           <FontAwesomeIcon icon={faSchool}></FontAwesomeIcon>
           <p>School</p>
-        </div>
-        <div className="item glass">
+        </button>
+        <button onClick={(e) => setCollection("Shop")} className="item glass">
           <FontAwesomeIcon icon={faShop}></FontAwesomeIcon>
           <p>Shop</p>
-        </div>
-        <div className="item glass">
+        </button>
+        <button
+          onClick={(e) => setCollection("Shopping")}
+          className="item glass"
+        >
           <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
           <p>Shopping</p>
-        </div>
-        <div className="item glass">
+        </button>
+        <button onClick={(e) => setCollection("Home")} className="item glass">
           <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
           <p>Home</p>
-        </div>
-        <div className="item glass">
+        </button>
+        <button
+          onClick={(e) => setCollection("Personal")}
+          className="item glass"
+        >
           <FontAwesomeIcon icon={faPerson}></FontAwesomeIcon>
           <p>Personal</p>
-        </div>
+        </button>
       </div>
     );
   };
