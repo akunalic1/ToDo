@@ -54,7 +54,20 @@
   top: 0px;
   right: -2px;
 }
-
+.comment-wrapper {
+  position: relative;
+}
+.comment-content {
+  position: absolute;
+  background-color: var(--soft-gray);
+  width: max(5rem, 10%);
+  height: fit-content;
+  border-radius: 8px;
+  bottom: 0;
+  left: 1.5rem;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
 /* ======================
 *   todo checkbox
    ======================*/
