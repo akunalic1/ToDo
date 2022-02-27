@@ -11,9 +11,13 @@ import {
 
 const TodoWorkspace = ({ collection }) => {
   const [showAddTask, setShowAddTask] = useState(true);
+  const [showFilterList, setShowFilterList] = useState(false);
   const inputFieldsRef = createRef();
   const handleShowHideInputs = (e) => {
     setShowAddTask(!showAddTask);
+  };
+  const handleFilterList = (e) => {
+    setShowFilterList(!showFilterList);
   };
 
   const renderInputFields = () => {
@@ -32,6 +36,7 @@ const TodoWorkspace = ({ collection }) => {
           </button>
           <button
             className={`btn btn-filter glass ${!showAddTask ? "hide" : ""}`}
+            onClick={handleFilterList}
           >
             Filter
             <FontAwesomeIcon
@@ -39,6 +44,15 @@ const TodoWorkspace = ({ collection }) => {
               className="add-task-icon"
             ></FontAwesomeIcon>
           </button>
+          <div
+            className={`filter-options glass ${!showFilterList ? "hide" : ""}`}
+          >
+            <button className="option glass"> Completed</button>
+            <button className="option glass">Important</button>
+            <button className="option glass">Urgent</button>
+            <button className="option glass">Not priority</button>
+            <button className="option glass">Other</button>
+          </div>
         </div>
         <div className={`create-todo glass ${showAddTask ? "hide" : ""}`}>
           <div className="create-todo-top">

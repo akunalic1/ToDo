@@ -51,12 +51,7 @@ input:focus {
 .fields-buttons {
   gap: 0.7rem;
   display: flex;
-}
-.btn-filter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+  position: relative;
 }
 .create-status,
 .status-btns {
@@ -84,16 +79,37 @@ input:focus {
 .default {
   background-color: var(--default-blue);
 }
-.add-task-btn {
+.add-task-btn,
+.btn-filter {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 0.5rem;
   width: 100%;
   font-size: 1.2rem;
   padding: 0.8rem 0.8rem;
   text-align: left;
+  border: 1px solid white;
+}
+.btn-filter {
+  width: fit-content;
 }
 .add-task-icon {
   padding: 0.2rem;
   border-radius: 5px;
+}
+.filter-options {
+  position: absolute;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  right: 0;
+  top: 3.5rem;
+  z-index: 10;
+  padding: 0.7rem;
+  border: 1px solid white;
+}
+.option {
+  border: none;
+  padding: 0.5rem 1.3rem;
 }
