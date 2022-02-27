@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
+import TodoWorkspace from "./TodoWorkspace";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       {/*
        * input field
        */}
+      <TodoWorkspace />
       {/*
        * todolist
        */}

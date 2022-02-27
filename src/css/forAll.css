@@ -17,18 +17,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-spartan);
 }
 
 body {
-  /*  background: linear-gradient(
-    45deg,
-    var(--light-green) 5%,
-    var(--coral-green) 75%
-  );
-  background-repeat: no-repeat;
-  */
   height: 100vh;
   background-color: rgb(238, 238, 232);
+}
+#root {
+  display: flex;
 }
 .glass {
   background: rgba(255, 255, 255, 0.207);
