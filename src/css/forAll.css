@@ -6,8 +6,8 @@
   --dark-blue: #15123f;
 
   --urgent-red: #f7241d;
-  --default-yellow: #fddc01;
-  --low-priority-gray: rgb(136, 136, 136);
+  --default-blue: #13efff;
+  --low-priority-yellow: rgb(255, 248, 56);
   --important-green: #00ad42;
 
   --font-spartan: "League Spartan", sans-serif;
@@ -32,4 +32,11 @@ body {
   border-radius: 0.4rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8.3px);
+}
+.hide {
+  display: none;
+}
+button,
+input {
+  cursor: pointer;
 }

@@ -1,32 +1,68 @@
-import React from "react";
+import React, { createRef, useState } from "react";
 import "./../css/todoWorkspace.css";
+import "./../css/forAll.css";
+import TodoList from "./TodoList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const TodoWorkspace = () => {
+  const [showAddTask, setShowAddTask] = useState(false);
+  const inputFieldsRef = createRef();
+  const handleShowHideInputs = (e) => {
+    setShowAddTask(!showAddTask);
+  };
+
   const renderInputFields = () => {
     return (
-      <div className="create-todo glass">
-        <input className="create-title" placeholder="Task title..."></input>
-        <input
-          className="create-description"
-          placeholder="Description..."
-        ></input>
-        <p className="label">Set as:</p>
-        <div className="create-status">
-          <div className="status-btns">
-            <button className="btn urgent">urgent</button>
-            <button className="btn important">important</button>
-            <button className="btn not-priority">not priority</button>
+      <div className="fields">
+        <div>
+          <button
+            className={`btn add-task-btn glass ${!showAddTask ? "hide" : ""}`}
+            onClick={handleShowHideInputs}
+          >
+            <FontAwesomeIcon
+              icon={faPlus}
+              className="add-task-icon"
+            ></FontAwesomeIcon>
+            Add a task
+          </button>
+        </div>
+        <div className={`create-todo glass ${showAddTask ? "hide" : ""}`}>
+          <div className="create-todo-top">
+            <div className="inputs">
+              <input
+                className="create-title"
+                placeholder="Task title..."
+              ></input>
+              <input
+                className="create-description"
+                placeholder="Description..."
+              ></input>
+            </div>
+            <button className="close-icon glass" onClick={handleShowHideInputs}>
+              <FontAwesomeIcon icon={faClose}></FontAwesomeIcon>
+            </button>
           </div>
-          <div>
-            <button className="btn default">+</button>
+          <p className="label">Set as:</p>
+          <div className="create-status">
+            <div className="status-btns">
+              <button className="btn urgent">urgent</button>
+              <button className="btn important">important</button>
+              <button className="btn not-priority">not priority</button>
+            </div>
+            <div></div>
           </div>
         </div>
       </div>
     );
   };
+
   return (
     <div className="workspace">
-      <div className="workspace-content">{renderInputFields()}</div>
+      <div className="workspace-content">
+        {renderInputFields()}
+        {/*  <TodoList /> */}
+      </div>
     </div>
   );
 };
