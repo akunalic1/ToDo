@@ -7,7 +7,7 @@
       "createdAt": "11-11-2021",
       "status": "important",
       "comment": "This should be completed in 3 days",
-      "completed": false
+      "completed": true
     },
     {
       "id": 2,
@@ -32,12 +32,12 @@
       "title": "My title",
       "text": "Some todo item",
       "createdAt": "11-11-2021",
-      "status": "low-priority",
+      "status": "not-a-priority",
       "comment": "",
       "completed": false
     },
     {
-      "id": 1,
+      "id": 5,
       "title": "My title",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec urna justo, sodales pharetra ante sit amet, ultrices rhoncus lacus. Morbi quis lectus aliquam",
       "createdAt": "11-11-2021",
@@ -46,7 +46,7 @@
       "completed": false
     },
     {
-      "id": 2,
+      "id": 6,
       "title": "Neque porro quisquam",
       "text": "luctus augue in, ultrices felis. Nam ut sapien posuere massa luctus porttitor. Nullam ultricies, arcu ac imperdiet congue, enim ligula pretium diam",
       "createdAt": "11-11-2021",
@@ -55,7 +55,7 @@
       "completed": false
     },
     {
-      "id": 3,
+      "id": 7,
       "title": "My title",
       "text": "dd",
       "createdAt": "11-11-2021",
@@ -64,11 +64,11 @@
       "completed": false
     },
     {
-      "id": 4,
+      "id": 8,
       "title": "My title",
       "text": "Some todo item",
       "createdAt": "11-11-2021",
-      "status": "low-priority",
+      "status": "not-a-priority",
       "comment": "",
       "completed": false
     }

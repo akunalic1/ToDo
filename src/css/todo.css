@@ -74,6 +74,6 @@
 .urgent-border {
   border-left: 5px solid var(--urgent-red);
 }
-.low-priority-border {
+.not-a-priority-border {
   border-left: 5px solid var(--low-priority-yellow);
 }
