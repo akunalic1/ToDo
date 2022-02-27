@@ -1,4 +1,4 @@
-import React, { createRef, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import "./../css/todoWorkspace.css";
 import "./../css/forAll.css";
 import TodoList from "./TodoList";
@@ -12,12 +12,16 @@ import {
 const TodoWorkspace = ({ collection }) => {
   const [showAddTask, setShowAddTask] = useState(true);
   const [showFilterList, setShowFilterList] = useState(false);
-  const inputFieldsRef = createRef();
+  const [filterOption, setFilterOption] = useState("all");
+
   const handleShowHideInputs = (e) => {
     setShowAddTask(!showAddTask);
   };
   const handleFilterList = (e) => {
     setShowFilterList(!showFilterList);
+  };
+  const handleFilterOption = (e) => {
+    setFilterOption(e.target.value);
   };
 
   const renderInputFields = () => {
@@ -47,11 +51,48 @@ const TodoWorkspace = ({ collection }) => {
           <div
             className={`filter-options glass ${!showFilterList ? "hide" : ""}`}
           >
-            <button className="option glass"> Completed</button>
-            <button className="option glass">Important</button>
-            <button className="option glass">Urgent</button>
-            <button className="option glass">Not priority</button>
-            <button className="option glass">Other</button>
+            <button
+              value={"all"}
+              onClick={handleFilterOption}
+              className="option glass"
+            >
+              All
+            </button>
+            <button
+              value={"completed"}
+              onClick={handleFilterOption}
+              className="option glass"
+            >
+              Completed
+            </button>
+            <button
+              value={"important"}
+              onClick={handleFilterOption}
+              className="option glass"
+            >
+              Important
+            </button>
+            <button
+              value={"urgent"}
+              onClick={handleFilterOption}
+              className="option glass"
+            >
+              Urgent
+            </button>
+            <button
+              value={"not-a-priority"}
+              onClick={handleFilterOption}
+              className="option glass"
+            >
+              Not a priority
+            </button>
+            <button
+              value={"default"}
+              onClick={handleFilterOption}
+              className="option glass"
+            >
+              Other
+            </button>
           </div>
         </div>
         <div className={`create-todo glass ${showAddTask ? "hide" : ""}`}>
@@ -89,7 +130,7 @@ const TodoWorkspace = ({ collection }) => {
       <div className="workspace-content">
         <div className="title">{collection}</div>
         {renderInputFields()}
-        <TodoList />
+        <TodoList filter={filterOption} />
       </div>
     </div>
   );
