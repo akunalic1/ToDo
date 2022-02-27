@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const TodoWorkspace = () => {
-  const [showAddTask, setShowAddTask] = useState(false);
+  const [showAddTask, setShowAddTask] = useState(true);
   const inputFieldsRef = createRef();
   const handleShowHideInputs = (e) => {
     setShowAddTask(!showAddTask);
@@ -61,7 +61,7 @@ const TodoWorkspace = () => {
     <div className="workspace">
       <div className="workspace-content">
         {renderInputFields()}
-        {/*  <TodoList /> */}
+        <TodoList />
       </div>
     </div>
   );

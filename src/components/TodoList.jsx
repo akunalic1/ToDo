@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import server from "../api/server";
 import Todo from "./Todo";
+import "./../css/todoList.css";
 
 const TodoList = () => {
   const [allTodos, setAllTodos] = useState([]);
@@ -16,7 +17,7 @@ const TodoList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="todo-list glass">
       {allTodos.map((todo) => (
         <Todo key={todo.id} todo={todo} />
       ))}
