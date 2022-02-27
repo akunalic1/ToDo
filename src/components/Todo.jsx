@@ -4,11 +4,16 @@ import {
   faEdit,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./../css/todo.css";
 
 const Todo = ({ todo }) => {
-  console.log(todo);
+  const [comment, setComment] = useState(false);
+
+  useEffect(() => {
+    setComment(todo.comment !== "");
+  }, []);
+
   return (
     <div className={`todo-item glass ${todo.status}-border`}>
       <div className="check-it">
@@ -29,7 +34,7 @@ const Todo = ({ todo }) => {
         </button>
         <button className="comment-btn">
           <FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
-          <div className="comment-exist"></div>
+          <div className={comment ? `comment-exist` : ""}></div>
         </button>
       </div>
     </div>
