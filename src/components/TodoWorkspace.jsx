@@ -5,7 +5,7 @@ import TodoList from "./TodoList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-const TodoWorkspace = () => {
+const TodoWorkspace = ({ collection }) => {
   const [showAddTask, setShowAddTask] = useState(true);
   const inputFieldsRef = createRef();
   const handleShowHideInputs = (e) => {
@@ -60,6 +60,7 @@ const TodoWorkspace = () => {
   return (
     <div className="workspace">
       <div className="workspace-content">
+        <div className="title">{collection}</div>
         {renderInputFields()}
         <TodoList />
       </div>

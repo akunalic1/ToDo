@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Sidebar from "./Sidebar";
 import TodoWorkspace from "./TodoWorkspace";
 
 const App = () => {
+  const [collection, setCollection] = useState("");
   return (
     <>
       {/*
        * sidebar
        */}
-      <Sidebar />
+      <Sidebar setCollection={setCollection} />
       {/*
        * input field
        */}
-      <TodoWorkspace />
+      <TodoWorkspace collection={collection} />
 
       {/*
        * todolist
