@@ -5,6 +5,7 @@ import {
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FilterTodo from "./FilterTodo";
 
 const TodoForm = ({
   handleFilterList,
@@ -13,7 +14,7 @@ const TodoForm = ({
   showAddTask,
   showFilterList,
 }) => {
-  const renderInputFields = () => {
+  const renderForm = () => {
     return (
       <div className="fields">
         <div className="fields-buttons">
@@ -40,80 +41,41 @@ const TodoForm = ({
           <div
             className={`filter-options glass ${!showFilterList ? "hide" : ""}`}
           >
-            <button
-              value={"all"}
-              onClick={handleFilterOption}
-              className="option glass"
-            >
-              All
-            </button>
-            <button
-              value={"completed"}
-              onClick={handleFilterOption}
-              className="option glass"
-            >
-              Completed
-            </button>
-            <button
-              value={"important"}
-              onClick={handleFilterOption}
-              className="option glass"
-            >
-              Important
-            </button>
-            <button
-              value={"urgent"}
-              onClick={handleFilterOption}
-              className="option glass"
-            >
-              Urgent
-            </button>
-            <button
-              value={"not-a-priority"}
-              onClick={handleFilterOption}
-              className="option glass"
-            >
-              Not a priority
-            </button>
-            <button
-              value={"default"}
-              onClick={handleFilterOption}
-              className="option glass"
-            >
-              Other
-            </button>
+            <FilterTodo handleFilterOption={handleFilterOption} />
           </div>
         </div>
-        <div className={`create-todo glass ${showAddTask ? "hide" : ""}`}>
-          <div className="create-todo-top">
-            <div className="inputs">
-              <input
-                className="create-title"
-                placeholder="Task title..."
-              ></input>
-              <input
-                className="create-description"
-                placeholder="Description..."
-              ></input>
-            </div>
-            <button className="close-icon glass" onClick={handleShowHideInputs}>
-              <FontAwesomeIcon icon={faClose}></FontAwesomeIcon>
-            </button>
+        {renderInputFields()}
+      </div>
+    );
+  };
+  const renderInputFields = () => {
+    return (
+      <div className={`create-todo glass ${showAddTask ? "hide" : ""}`}>
+        <div className="create-todo-top">
+          <div className="inputs">
+            <input className="create-title" placeholder="Task title..."></input>
+            <input
+              className="create-description"
+              placeholder="Description..."
+            ></input>
           </div>
-          <p className="label">Set as:</p>
-          <div className="create-status">
-            <div className="status-btns">
-              <button className="btn urgent">urgent</button>
-              <button className="btn important">important</button>
-              <button className="btn not-priority">not priority</button>
-            </div>
-            <div></div>
+          <button className="close-icon glass" onClick={handleShowHideInputs}>
+            <FontAwesomeIcon icon={faClose}></FontAwesomeIcon>
+          </button>
+        </div>
+        <p className="label">Set as:</p>
+        <div className="create-status">
+          <div className="status-btns">
+            <button className="btn urgent">urgent</button>
+            <button className="btn important">important</button>
+            <button className="btn not-priority">not priority</button>
           </div>
+          <div></div>
         </div>
       </div>
     );
   };
-  return <>{renderInputFields()}</>;
+  return <>{renderForm()}</>;
 };
 
 export default TodoForm;
