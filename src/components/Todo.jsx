@@ -1,6 +1,6 @@
 import { faComment, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createRef } from "react";
 import DeleteTodo from "./DeleteTodo";
 import "./../css/todo.css";
 
@@ -8,6 +8,7 @@ const Todo = ({ todo, setRefreshList }) => {
   const [comment, setComment] = useState(false);
   const [openComment, setOpenComent] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
+  const todoRef = createRef();
 
   useEffect(() => {
     setComment(todo.comment !== "");
@@ -16,15 +17,26 @@ const Todo = ({ todo, setRefreshList }) => {
   const handleOpenComment = (e) => {
     setOpenComent(!openComment);
   };
-  const handleDeleteTodo = () => {
+  const handleDeleteTodo = (e) => {
     setOpenDelete(!openDelete);
+  };
+  const handleCheckboxClick = (e) => {
+    console.log(todoRef.current);
+    e.target.checked
+      ? todoRef.current.classList.add("completed-todo")
+      : todoRef.current.classList.remove("completed-todo");
+    console.log("item clicked ", e.target.checked);
   };
 
   return (
     <div>
-      <div className={`todo-item glass ${todo.status}-border`}>
+      <div ref={todoRef} className={`todo-item glass ${todo.status}-border`}>
         <div className="check-it">
-          <input type={"checkbox"} className="checkbox"></input>
+          <input
+            onClick={handleCheckboxClick}
+            type={"checkbox"}
+            className="checkbox"
+          ></input>
         </div>
 
         <div className="todo-content">

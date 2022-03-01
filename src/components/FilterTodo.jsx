@@ -12,6 +12,10 @@ const FilterTodo = ({ handleFilterOption }) => {
         text: "Completed",
       },
       {
+        value: "not-completed",
+        text: "Not completed",
+      },
+      {
         value: "important",
         text: "Important",
       },
