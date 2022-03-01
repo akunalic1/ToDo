@@ -10,7 +10,7 @@ const TodoList = ({ filter }) => {
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const response = await server.get("/todos");
+      const response = await server.get("/todos?_sort=completed&_order=asc");
 
       if (response.status === 200) {
         setAllTodos(response.data);

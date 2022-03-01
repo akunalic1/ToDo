@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState, createRef } from "react";
 import DeleteTodo from "./DeleteTodo";
 import "./../css/todo.css";
+import server from "../api/server";
 
 const Todo = ({ todo, setRefreshList }) => {
   const [comment, setComment] = useState(false);
   const [openComment, setOpenComent] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
+  const [todoCompleted, setTodoCompleted] = useState(todo.completed);
   const todoRef = createRef();
 
   useEffect(() => {
@@ -22,18 +24,35 @@ const Todo = ({ todo, setRefreshList }) => {
   };
   const handleCheckboxClick = (e) => {
     console.log(todoRef.current);
-    e.target.checked
-      ? todoRef.current.classList.add("completed-todo")
-      : todoRef.current.classList.remove("completed-todo");
+    if (e.target.checked) {
+      todoRef.current.classList.add("completed-todo");
+      server.patch(`/todos/${todo.id}`, {
+        completed: true,
+      });
+      setTodoCompleted(true);
+    } else {
+      todoRef.current.classList.remove("completed-todo");
+      server.patch(`/todos/${todo.id}`, {
+        completed: false,
+      });
+      setTodoCompleted(false);
+    }
+    setRefreshList(true);
     console.log("item clicked ", e.target.checked);
   };
 
   return (
     <div>
-      <div ref={todoRef} className={`todo-item glass ${todo.status}-border`}>
+      <div
+        ref={todoRef}
+        className={`todo-item glass ${todo.status}-border ${
+          todo.completed ? "completed-todo" : ""
+        }`}
+      >
         <div className="check-it">
           <input
-            onClick={handleCheckboxClick}
+            checked={todoCompleted}
+            onChange={handleCheckboxClick}
             type={"checkbox"}
             className="checkbox"
           ></input>
