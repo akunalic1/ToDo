@@ -9,6 +9,7 @@ import {
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 import TodoForm from "./TodoForm";
+import ShowHideForm from "./ShowHideForm";
 
 const TodoWorkspace = ({ collection }) => {
   const [showAddTask, setShowAddTask] = useState(true);
@@ -17,6 +18,7 @@ const TodoWorkspace = ({ collection }) => {
 
   const handleShowHideInputs = (e) => {
     setShowAddTask(!showAddTask);
+    setShowFilterList(false);
   };
   const handleFilterList = (e) => {
     setShowFilterList(!showFilterList);
@@ -29,13 +31,13 @@ const TodoWorkspace = ({ collection }) => {
     <div className="workspace">
       <div className="workspace-content">
         <div className="title">{collection}</div>
-        <TodoForm
+        <ShowHideForm
           handleFilterList={handleFilterList}
           handleShowHideInputs={handleShowHideInputs}
           handleFilterOption={handleFilterOption}
           showAddTask={showAddTask}
           showFilterList={showFilterList}
-        ></TodoForm>
+        ></ShowHideForm>
         <TodoList filter={filterOption} />
       </div>
     </div>
