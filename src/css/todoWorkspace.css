@@ -61,7 +61,7 @@ input:focus {
 }
 .btn {
   border: none;
-  padding: 0.3rem 0.7rem;
+  padding: 0.5rem 0.7rem;
   border-radius: 1rem;
 }
 .label {
@@ -70,7 +70,7 @@ input:focus {
 .urgent {
   background-color: var(--urgent-red);
 }
-.not-priority {
+.not-a-priority {
   background-color: var(--low-priority-yellow);
 }
 .important {
@@ -112,4 +112,11 @@ input:focus {
 .option {
   border: none;
   padding: 0.5rem 1.3rem;
+}
+.not-clicked {
+  opacity: 0.5;
+}
+
+.btn-submit {
+  font-size: larger;
 }
