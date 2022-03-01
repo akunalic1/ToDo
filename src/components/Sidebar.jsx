@@ -8,11 +8,33 @@ import {
   faTasks,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import server from "../api/server";
 
 import "./../css/sidebar.css";
 
 const Sidebar = ({ setCollection }) => {
+  const [productivity, setProductivity] = useState({ done: 0, total: 0 });
+
+  useEffect(() => {
+    const getNumberOfTodos = async () => {
+      const response = await server.get("/todos");
+      response.status === 200
+        ? setProductivity({ ...productivity, total: response.data.length })
+        : console.log(response);
+      console.log(response);
+    };
+    const getNumberOfDoneTodos = async () => {
+      const response = await server.get("/todos?completed=true");
+      response.status === 200
+        ? setProductivity({ ...productivity, done: response.data.length })
+        : console.log(response);
+      console.log(response);
+    };
+    getNumberOfTodos();
+    getNumberOfDoneTodos();
+  }, []);
+
   const renderCollections = () => {
     return (
       <div className="collections">
@@ -56,14 +78,14 @@ const Sidebar = ({ setCollection }) => {
           <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
           <div className="item-num">
             <p>Done</p>
-            <p>(3)</p>
+            <p>{productivity.done}</p>
           </div>
         </div>
         <div className="item glass">
           <FontAwesomeIcon icon={faTasks}></FontAwesomeIcon>
           <div className="item-num">
             <p>Total tasks</p>
-            <p>(33)</p>
+            <p>{productivity.total}</p>
           </div>
         </div>
       </div>
