@@ -120,3 +120,6 @@ input:focus {
 .btn-submit {
   font-size: larger;
 }
+.error-message {
+  color: red;
+}
