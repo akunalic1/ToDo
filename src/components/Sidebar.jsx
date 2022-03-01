@@ -16,21 +16,21 @@ import "./../css/sidebar.css";
 const Sidebar = ({ setCollection }) => {
   const [productivity, setProductivity] = useState({ done: 0, total: 0 });
 
+  const getNumberOfTodos = async () => {
+    const response = await server.get("/todos");
+    response.status === 200
+      ? setProductivity({ ...productivity, total: response.data.length })
+      : console.log(response);
+    console.log(response);
+  };
+  const getNumberOfDoneTodos = async () => {
+    const response = await server.get("/todos?completed=true");
+    response.status === 200
+      ? setProductivity({ ...productivity, done: response.data.length })
+      : console.log(response);
+    console.log(response);
+  };
   useEffect(() => {
-    const getNumberOfTodos = async () => {
-      const response = await server.get("/todos");
-      response.status === 200
-        ? setProductivity({ ...productivity, total: response.data.length })
-        : console.log(response);
-      console.log(response);
-    };
-    const getNumberOfDoneTodos = async () => {
-      const response = await server.get("/todos?completed=true");
-      response.status === 200
-        ? setProductivity({ ...productivity, done: response.data.length })
-        : console.log(response);
-      console.log(response);
-    };
     getNumberOfTodos();
     getNumberOfDoneTodos();
   }, []);
