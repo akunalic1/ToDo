@@ -4,21 +4,13 @@ import React, { useEffect, useState, createRef } from "react";
 import DeleteTodo from "./DeleteTodo";
 import "./../css/todo.css";
 import server from "../api/server";
+import Comment from "./Comment";
 
 const Todo = ({ todo, setRefreshList }) => {
-  const [comment, setComment] = useState(false);
-  const [openComment, setOpenComent] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
   const [todoCompleted, setTodoCompleted] = useState(todo.completed);
   const todoRef = createRef();
 
-  useEffect(() => {
-    setComment(todo.comment !== "");
-  }, []);
-
-  const handleOpenComment = (e) => {
-    setOpenComent(!openComment);
-  };
   const handleDeleteTodo = (e) => {
     setOpenDelete(!openDelete);
   };
@@ -73,19 +65,7 @@ const Todo = ({ todo, setRefreshList }) => {
           <button onClick={handleDeleteTodo}>
             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
           </button>
-          <div className="comment-wrapper">
-            <button onClick={handleOpenComment} className="comment-btn">
-              <FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
-              <div className={comment ? `comment-exist` : ""}></div>
-            </button>
-            <div
-              className={`comment-content ${
-                !openComment || !comment ? "hide" : ""
-              }`}
-            >
-              {todo.comment}
-            </div>
-          </div>
+          <Comment todo={todo}></Comment>
         </div>
       </div>
       <DeleteTodo
