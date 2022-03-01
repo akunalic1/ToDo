@@ -85,7 +85,13 @@ const TodoForm = ({ handleShowHideInputs, showAddTask }) => {
               placeholder="Description..."
             ></input>
           </div>
-          <button className="close-icon glass" onClick={handleShowHideInputs}>
+          <button
+            className="close-icon glass"
+            onClick={(e) => {
+              e.preventDefault();
+              handleShowHideInputs(e);
+            }}
+          >
             <FontAwesomeIcon icon={faClose}></FontAwesomeIcon>
           </button>
         </div>
