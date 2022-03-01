@@ -1,8 +1,4 @@
-import {
-  faCheckCircle,
-  faComment,
-  faEdit,
-} from "@fortawesome/free-solid-svg-icons";
+import { faComment, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import "./../css/todo.css";
@@ -36,6 +32,9 @@ const Todo = ({ todo }) => {
       <div className="todo-icons">
         <button>
           <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
+        </button>
+        <button>
+          <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
         </button>
         <div className="comment-wrapper">
           <button onClick={handleOpenComment} className="comment-btn">

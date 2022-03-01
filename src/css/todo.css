@@ -33,6 +33,7 @@
   padding: 0 0.7rem;
   width: fit-content;
   display: flex;
+  gap: 0.7rem;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 0.7rem;
