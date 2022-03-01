@@ -6,6 +6,7 @@ import "./../css/todoList.css";
 const TodoList = ({ filter }) => {
   const [allTodos, setAllTodos] = useState([]);
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [refreshList, setRefreshList] = useState(false);
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -18,7 +19,8 @@ const TodoList = ({ filter }) => {
       console.log(response);
     };
     fetchTodos();
-  }, []);
+    setRefreshList(false);
+  }, [refreshList]);
 
   useEffect(() => {
     switch (filter) {
@@ -39,7 +41,9 @@ const TodoList = ({ filter }) => {
   return (
     <div className="todo-list glass">
       {filteredTodos
-        ? filteredTodos.map((todo) => <Todo key={todo.id} todo={todo} />)
+        ? filteredTodos.map((todo) => (
+            <Todo setRefreshList={setRefreshList} key={todo.id} todo={todo} />
+          ))
         : null}
     </div>
   );

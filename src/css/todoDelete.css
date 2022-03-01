@@ -1,0 +1,62 @@
+.delete-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+  text-align: center;
+  width: 100%;
+  padding: 0.7rem;
+}
+.buttons-delete-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.important-delete-border {
+  border-left: 5px solid var(--important-green);
+  border-bottom: 1px solid var(--important-green);
+  border-right: 1px solid var(--important-green);
+}
+
+.default-delete-border {
+  border-left: 5px solid var(--default-blue);
+  border-bottom: 1px solid var(--default-blue);
+  border-right: 1px solid var(--default-blue);
+}
+
+.urgent-delete-border {
+  border-left: 5px solid var(--urgent-red);
+  border-bottom: 1px solid var(--urgent-red);
+  border-right: 1px solid var(--urgent-red);
+}
+.not-a-priority-delete-border {
+  border-left: 5px solid var(--low-priority-yellow);
+  border-bottom: 1px solid var(--low-priority-yellow);
+  border-right: 1px solid var(--low-priority-yellow);
+}
+.hide {
+  display: none;
+}
+.delete-yes,
+.delete-no {
+  border: none;
+  padding: 0.5rem 4rem;
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 3px;
+}
+.delete-yes {
+  background-color: var(--dark-blue);
+  color: white;
+}
+.delete-yes:hover {
+  background-color: var(--coral-green);
+  color: var(--dark-blue);
+}
+.delete-no {
+  background-color: var(--coral-green);
+}
+.delete-no:hover {
+  background-color: var(--dark-blue);
+  color: white;
+}

@@ -27,8 +27,6 @@ const TodoForm = ({ handleShowHideInputs, showAddTask }) => {
           comment: "",
           completed: false,
         });
-
-        console.log(response);
       };
       saveTodo();
     }

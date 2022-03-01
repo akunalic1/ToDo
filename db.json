@@ -1,33 +1,6 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "My title",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec urna justo, sodales pharetra ante sit amet, ultrices rhoncus lacus. Morbi quis lectus aliquam",
-      "createdAt": "11-11-2021",
-      "status": "important",
-      "comment": "This should be completed in 3 days",
-      "completed": true
-    },
-    {
-      "id": 2,
-      "title": "Neque porro quisquam",
-      "text": "luctus augue in, ultrices felis. Nam ut sapien posuere massa luctus porttitor. Nullam ultricies, arcu ac imperdiet congue, enim ligula pretium diam",
-      "createdAt": "11-11-2021",
-      "status": "default",
-      "comment": "",
-      "completed": false
-    },
-    {
-      "id": 3,
-      "title": "My title",
-      "text": "Some todo item",
-      "createdAt": "11-11-2021",
-      "status": "urgent",
-      "comment": "",
-      "completed": false
-    },
-    {
       "id": 4,
       "title": "My title",
       "text": "Some todo item",
@@ -73,46 +46,6 @@
       "completed": false
     },
     {
-      "title": "ssssss",
-      "text": "as",
-      "createdAt": 1,
-      "comment": "",
-      "completed": false,
-      "id": 9
-    },
-    {
-      "title": "aaa",
-      "text": "",
-      "createdAt": 1,
-      "comment": "",
-      "completed": false,
-      "id": 10
-    },
-    {
-      "title": "aaa",
-      "text": "",
-      "createdAt": "Tue Mar 01 2022",
-      "comment": "",
-      "completed": false,
-      "id": 11
-    },
-    {
-      "title": "aaa",
-      "text": "",
-      "createdAt": "Tue Mar 01 2022",
-      "comment": "",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "title": "aaa",
-      "text": "",
-      "createdAt": "Tue Mar 01 2022",
-      "comment": "",
-      "completed": false,
-      "id": 13
-    },
-    {
       "title": "to",
       "text": "",
       "createdAt": "Tue Mar 01 2022",
@@ -120,30 +53,6 @@
       "comment": "",
       "completed": false,
       "id": 14
-    },
-    {
-      "title": "to",
-      "text": "",
-      "createdAt": "3/1/2022",
-      "comment": "",
-      "completed": false,
-      "id": 15
-    },
-    {
-      "title": "asaa",
-      "text": "",
-      "createdAt": "3/1/2022",
-      "comment": "",
-      "completed": false,
-      "id": 16
-    },
-    {
-      "title": "asaa",
-      "text": "",
-      "createdAt": "3/1/2022",
-      "comment": "",
-      "completed": false,
-      "id": 17
     },
     {
       "title": "asa",

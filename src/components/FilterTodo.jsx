@@ -16,16 +16,16 @@ const FilterTodo = ({ handleFilterOption }) => {
         text: "Important",
       },
       {
-        value: "Urgent",
-        text: "urgent",
+        value: "urgent",
+        text: "Urgent",
       },
       {
         value: "not-a-priority",
         text: "Not a priority",
       },
       {
-        value: "Other",
-        text: "default",
+        value: "default",
+        text: "Other",
       },
     ];
 
