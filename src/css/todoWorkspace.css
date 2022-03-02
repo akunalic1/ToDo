@@ -34,7 +34,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 80%;
+  width: 70%;
   margin-top: 5rem;
 }
 .close-icon {
