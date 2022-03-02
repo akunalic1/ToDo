@@ -1,27 +1,75 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faComment, faTrash } from "@fortawesome/free-solid-svg-icons";
+import "./../css/comment.css";
+import server from "../api/server";
 
 const Comment = ({ todo }) => {
-  const [comment, setComment] = useState(false);
+  const [commentExist, setCommentExist] = useState(false);
   const [openComment, setOpenComent] = useState(false);
+  const [commentText, setCommentText] = useState(todo.comment);
+
+  useEffect(() => {
+    setCommentExist(todo.comment !== "");
+  }, []);
+
   const handleOpenComment = (e) => {
     setOpenComent(!openComment);
   };
 
-  useEffect(() => {
-    setComment(todo.comment !== "");
-  }, []);
+  const handleSubmitComment = () => {
+    if (commentText.trim().length) {
+      server.patch(`/todos/${todo.id}`, {
+        comment: commentText,
+      });
+      setCommentExist(true);
+    }
+    setOpenComent(false);
+  };
+
+  const handleDeleteComment = (e) => {
+    server.patch(`/todos/${todo.id}`, {
+      comment: "",
+    });
+    setCommentExist(false);
+    setOpenComent(false);
+    setCommentText("");
+  };
   return (
     <div className="comment-wrapper">
       <button onClick={handleOpenComment} className="comment-btn">
         <FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
-        <div className={comment ? `comment-exist` : ""}></div>
+        <div className={commentExist ? `comment-exist` : ""}></div>
       </button>
-      <div
-        className={`comment-content ${!openComment || !comment ? "hide" : ""}`}
-      >
-        {todo.comment}
+      <div>
+        <div
+          className={`comment-content ${
+            !openComment || commentExist ? "hide" : ""
+          }`}
+        >
+          <textarea
+            value={commentText}
+            onChange={(e) => setCommentText(e.target.value)}
+            className="comment-input-field"
+            placeholder="Write..."
+          ></textarea>
+          <button onClick={handleSubmitComment} className="btn-save-comment">
+            OK
+          </button>
+        </div>
+        {/*
+         * existing comment container
+         */}
+        <div
+          className={`comment-container ${
+            !openComment || !commentExist ? "hide" : ""
+          }`}
+        >
+          <div className={`comment-content`}>{commentText}</div>
+          <button onClick={handleDeleteComment} className="delete-comment">
+            <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+          </button>
+        </div>
       </div>
     </div>
   );

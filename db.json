@@ -15,7 +15,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec urna justo, sodales pharetra ante sit amet, ultrices rhoncus lacus. Morbi quis lectus aliquam",
       "createdAt": "11-11-2021",
       "status": "important",
-      "comment": "This should be completed in 3 days",
+      "comment": "This should be completed in 3 days :)",
       "completed": false
     },
     {
@@ -24,7 +24,7 @@
       "text": "luctus augue in, ultrices felis. Nam ut sapien posuere massa luctus porttitor. Nullam ultricies, arcu ac imperdiet congue, enim ligula pretium diam",
       "createdAt": "11-11-2021",
       "status": "default",
-      "comment": "",
+      "comment": "proba",
       "completed": false
     },
     {
@@ -34,7 +34,7 @@
       "createdAt": "11-11-2021",
       "status": "urgent",
       "comment": "",
-      "completed": true
+      "completed": false
     },
     {
       "id": 8,
@@ -43,7 +43,7 @@
       "createdAt": "11-11-2021",
       "status": "not-a-priority",
       "comment": "",
-      "completed": false
+      "completed": true
     },
     {
       "title": "to",
@@ -60,7 +60,7 @@
       "createdAt": "3/1/2022",
       "status": "important",
       "comment": "",
-      "completed": false,
+      "completed": true,
       "id": 18
     },
     {
