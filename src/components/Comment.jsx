@@ -65,7 +65,7 @@ const Comment = ({ todo }) => {
             !openComment || !commentExist ? "hide" : ""
           }`}
         >
-          <div className={`comment-content`}>{commentText}</div>
+          <p className={`comment-content comment-text`}>{commentText}</p>
           <button onClick={handleDeleteComment} className="delete-comment">
             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
           </button>
