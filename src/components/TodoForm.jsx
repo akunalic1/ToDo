@@ -8,29 +8,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FilterTodo from "./FilterTodo";
 import server from "../api/server";
 
-const TodoForm = ({ handleShowHideInputs, showAddTask }) => {
+const TodoForm = ({ handleShowHideInputs, showAddTask, setRefreshList }) => {
   const titleRef = createRef();
   const descriptionRef = createRef();
   const statusBtnsRef = createRef();
   const formRef = createRef();
   let statusList = [];
   const [errorMessage, setErrorMessage] = useState("");
-
-  useEffect(() => {
-    if (!errorMessage.length && titleRef.current.value.length) {
-      const saveTodo = async () => {
-        const response = await server.post("/todos", {
-          title: titleRef.current.value,
-          text: descriptionRef.current.value,
-          createdAt: new Date().toDateString(),
-          status: statusList[0],
-          comment: "",
-          completed: false,
-        });
-      };
-      saveTodo();
-    }
-  }, [errorMessage]);
+  const [response, setResponse] = useState({});
 
   const handleStatusClicked = (e) => {
     e.preventDefault();
@@ -54,18 +39,27 @@ const TodoForm = ({ handleShowHideInputs, showAddTask }) => {
         const response = await server.post("/todos", {
           title: titleRef.current.value,
           text: descriptionRef.current.value,
-          createdAt: new Date().toLocaleDateString("en-US"),
+          createdAt: new Date().toLocaleString(),
           status: statusList.length === 0 ? "default" : statusList[0],
           comment: "",
           completed: false,
         });
-
-        console.log(response);
+        setResponse(response);
       };
       saveTodo();
-      formRef.current.reset();
     }
   };
+
+  useEffect(() => {
+    if (statusBtnsRef.current)
+      Array.from(statusBtnsRef.current.children).forEach((button) =>
+        button.classList.add("not-clicked")
+      );
+    statusList.pop();
+    setRefreshList(true);
+    setErrorMessage("");
+    formRef.current.reset();
+  }, [response]);
   const renderInputFields = () => {
     return (
       <form
