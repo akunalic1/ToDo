@@ -1,80 +1,98 @@
 import React, { createRef, useEffect, useState } from "react";
-import {
-  faClose,
-  faPlus,
-  faAngleDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import FilterTodo from "./FilterTodo";
 import server from "../api/server";
 
-const TodoForm = ({ handleShowHideInputs, showAddTask, setRefreshList }) => {
-  const titleRef = createRef();
-  const descriptionRef = createRef();
+const TodoForm = ({
+  handleCloseInputFields,
+  addTaskClicked,
+  setRefreshList,
+  todo,
+  setOpenEdit,
+  onSubmit,
+}) => {
+  /*
+   * hooks
+   */
   const statusBtnsRef = createRef();
   const formRef = createRef();
-  let statusList = [];
+  const [statusList, setStatusList] = useState([]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [response, setResponse] = useState({});
 
+  /*
+   * functions
+   */
+  const setInitialStatusButtons = (statusBtnsRef) => {
+    Array.from(statusBtnsRef.current.children).forEach((button) => {
+      if (button.classList.contains(todo.status)) {
+        button.classList.remove("not-clicked");
+        setStatusList([todo.status]);
+      }
+    });
+  };
+  /*
+   * useEffect
+   */
+  useEffect(() => {
+    Array.from(statusBtnsRef.current.children).forEach((button) =>
+      button.classList.add("not-clicked")
+    );
+    setRefreshList(true);
+    setErrorMessage("");
+    setTitle("");
+    setDescription("");
+  }, [response]);
+
+  useEffect(() => {
+    if (todo) {
+      setTitle(todo.title);
+      setDescription(todo.text);
+      setInitialStatusButtons(statusBtnsRef);
+    }
+  }, [addTaskClicked]);
+
+  /*
+   * event handlers
+   */
   const handleStatusClicked = (e) => {
     e.preventDefault();
     if (statusList.includes(e.target.value)) {
-      statusList.pop();
+      setStatusList([]);
       e.target.classList.add("not-clicked");
     } else {
       Array.from(statusBtnsRef.current.children).forEach((button) =>
         button.classList.add("not-clicked")
       );
       e.target.classList.remove("not-clicked");
-      statusList.push(e.target.value);
+      setStatusList([e.target.value]);
     }
   };
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    if (!titleRef.current.value || !titleRef.current.value.trim().length)
-      setErrorMessage("Title cannot be empty");
-    else {
-      const saveTodo = async () => {
-        const response = await server.post("/todos", {
-          title: titleRef.current.value,
-          text: descriptionRef.current.value,
-          createdAt: new Date().toLocaleString(),
-          status: statusList.length === 0 ? "default" : statusList[0],
-          comment: "",
-          completed: false,
-        });
-        setResponse(response);
-      };
-      saveTodo();
-    }
+    if (!title.trim().length) setErrorMessage("Title cannot be empty");
+    else onSubmit(title, description, statusList, setStatusList, setResponse);
   };
 
-  useEffect(() => {
-    if (statusBtnsRef.current)
-      Array.from(statusBtnsRef.current.children).forEach((button) =>
-        button.classList.add("not-clicked")
-      );
-    statusList.pop();
-    setRefreshList(true);
-    setErrorMessage("");
-    formRef.current.reset();
-  }, [response]);
   const renderInputFields = () => {
     return (
       <form
         ref={formRef}
-        className={`create-todo glass ${showAddTask ? "hide" : ""}`}
+        className={`create-todo glass ${!addTaskClicked ? "hide" : ""}`}
       >
         <div className="create-todo-top">
           <div className="inputs">
             <input
-              ref={titleRef}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               className="create-title"
               placeholder="Task title..."
             ></input>
             <input
-              ref={descriptionRef}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               className="create-description"
               placeholder="Description..."
             ></input>
@@ -83,7 +101,7 @@ const TodoForm = ({ handleShowHideInputs, showAddTask, setRefreshList }) => {
             className="close-icon glass"
             onClick={(e) => {
               e.preventDefault();
-              handleShowHideInputs(e);
+              handleCloseInputFields(e);
             }}
           >
             <FontAwesomeIcon icon={faClose}></FontAwesomeIcon>

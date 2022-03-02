@@ -2,30 +2,12 @@ import React, { createRef, useEffect, useState } from "react";
 import "./../css/todoWorkspace.css";
 import "./../css/forAll.css";
 import TodoList from "./TodoList";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faClose,
-  faPlus,
-  faAngleDown,
-} from "@fortawesome/free-solid-svg-icons";
-import TodoForm from "./TodoForm";
-import ShowHideForm from "./ShowHideForm";
+import FormContainer from "./FormContainer";
 
-const TodoWorkspace = ({ collection }) => {
-  const [showAddTask, setShowAddTask] = useState(true);
-  const [showFilterList, setShowFilterList] = useState(false);
+const TodoWorkspace = ({ collection, setNumberOfDone, setTotalNumber }) => {
   const [filterOption, setFilterOption] = useState("all");
   const [refreshList, setRefreshList] = useState(false);
 
-  console.log("set refreshd ", setRefreshList);
-
-  const handleShowHideInputs = (e) => {
-    setShowAddTask(!showAddTask);
-    setShowFilterList(false);
-  };
-  const handleFilterList = (e) => {
-    setShowFilterList(!showFilterList);
-  };
   const handleFilterOption = (e) => {
     setFilterOption(e.target.value);
   };
@@ -34,18 +16,16 @@ const TodoWorkspace = ({ collection }) => {
     <div className="workspace">
       <div className="workspace-content">
         <div className="title">{collection}</div>
-        <ShowHideForm
-          handleFilterList={handleFilterList}
-          handleShowHideInputs={handleShowHideInputs}
+        <FormContainer
           handleFilterOption={handleFilterOption}
-          showAddTask={showAddTask}
-          showFilterList={showFilterList}
           setRefreshList={setRefreshList}
-        ></ShowHideForm>
+        ></FormContainer>
         <TodoList
           filter={filterOption}
           refreshList={refreshList}
           setRefreshList={setRefreshList}
+          setNumberOfDone={setNumberOfDone}
+          setTotalNumber={setTotalNumber}
         />
       </div>
     </div>

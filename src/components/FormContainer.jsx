@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   faClose,
   faPlus,
@@ -6,24 +6,26 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FilterTodo from "./FilterTodo";
-import TodoForm from "./TodoForm";
+import CreateTodo from "./CreateTodo";
 
-const ShowHideForm = ({
-  handleFilterList,
-  handleFilterOption,
-  handleShowHideInputs,
-  showAddTask,
-  showFilterList,
-  setRefreshList,
-}) => {
-  console.log("set refreshd unutar show hide", setRefreshList);
+const FormContainer = ({ handleFilterOption, setRefreshList }) => {
+  const [addTaskClicked, setAddTaskClicked] = useState(false);
+  const [showFilterList, setShowFilterList] = useState(false);
+  const handleFilterListOnClick = (e) => {
+    setShowFilterList(!showFilterList);
+  };
+  const handleCloseInputFields = (e) => {
+    setAddTaskClicked(!addTaskClicked);
+    setShowFilterList(false);
+  };
+
   const renderForm = () => {
     return (
       <div className="fields">
         <div className="fields-buttons">
           <button
-            className={`btn add-task-btn glass ${!showAddTask ? "hide" : ""}`}
-            onClick={handleShowHideInputs}
+            className={`btn add-task-btn glass ${addTaskClicked ? "hide" : ""}`}
+            onClick={handleCloseInputFields}
           >
             <FontAwesomeIcon
               icon={faPlus}
@@ -32,8 +34,8 @@ const ShowHideForm = ({
             Add a task
           </button>
           <button
-            className={`btn btn-filter glass ${!showAddTask ? "hide" : ""}`}
-            onClick={handleFilterList}
+            className={`btn btn-filter glass ${addTaskClicked ? "hide" : ""}`}
+            onClick={handleFilterListOnClick}
           >
             Filter
             <FontAwesomeIcon
@@ -47,15 +49,15 @@ const ShowHideForm = ({
             <FilterTodo handleFilterOption={handleFilterOption} />
           </div>
         </div>
-        <TodoForm
-          handleShowHideInputs={handleShowHideInputs}
-          showAddTask={showAddTask}
+        <CreateTodo
           setRefreshList={setRefreshList}
-        />
+          addTaskClicked={addTaskClicked}
+          handleCloseInputFields={handleCloseInputFields}
+        ></CreateTodo>
       </div>
     );
   };
   return <>{renderForm()}</>;
 };
 
-export default ShowHideForm;
+export default FormContainer;

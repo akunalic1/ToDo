@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./../css/todoDelete.css";
 import server from "../api/server";
 
 const DeleteTodo = ({ todo, openDelete, setOpenDelete, setRefreshList }) => {
+  const [response, setResponse] = useState({});
   const handleDelete = () => {
     const deleteTodo = async () => {
-      const response = await server.delete(`/todos/${todo.id}`);
+      const res = await server.delete(`/todos/${todo.id}`);
       console.log(response);
+      setResponse(res);
     };
     deleteTodo();
-    setRefreshList(true);
   };
+  useEffect(() => {
+    setRefreshList(true);
+  }, [response]);
   return (
     <div
       className={`delete-field glass ${!openDelete ? "hide" : ""} ${
