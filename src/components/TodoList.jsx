@@ -3,14 +3,13 @@ import server from "../api/server";
 import Todo from "./Todo";
 import "./../css/todoList.css";
 
-const TodoList = ({ filter }) => {
+const TodoList = ({ filter, refreshList, setRefreshList }) => {
   const [allTodos, setAllTodos] = useState([]);
   const [filteredTodos, setFilteredTodos] = useState([]);
-  const [refreshList, setRefreshList] = useState(false);
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const response = await server.get("/todos?_sort=completed&_order=asc");
+      const response = await server.get("/todos?_sort=createdAt&_order=desc");
 
       if (response.status === 200) {
         setAllTodos(response.data);

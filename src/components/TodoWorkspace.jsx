@@ -15,6 +15,9 @@ const TodoWorkspace = ({ collection }) => {
   const [showAddTask, setShowAddTask] = useState(true);
   const [showFilterList, setShowFilterList] = useState(false);
   const [filterOption, setFilterOption] = useState("all");
+  const [refreshList, setRefreshList] = useState(false);
+
+  console.log("set refreshd ", setRefreshList);
 
   const handleShowHideInputs = (e) => {
     setShowAddTask(!showAddTask);
@@ -37,8 +40,13 @@ const TodoWorkspace = ({ collection }) => {
           handleFilterOption={handleFilterOption}
           showAddTask={showAddTask}
           showFilterList={showFilterList}
+          setRefreshList={setRefreshList}
         ></ShowHideForm>
-        <TodoList filter={filterOption} />
+        <TodoList
+          filter={filterOption}
+          refreshList={refreshList}
+          setRefreshList={setRefreshList}
+        />
       </div>
     </div>
   );

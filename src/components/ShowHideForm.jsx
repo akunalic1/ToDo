@@ -14,7 +14,9 @@ const ShowHideForm = ({
   handleShowHideInputs,
   showAddTask,
   showFilterList,
+  setRefreshList,
 }) => {
+  console.log("set refreshd unutar show hide", setRefreshList);
   const renderForm = () => {
     return (
       <div className="fields">
@@ -48,6 +50,7 @@ const ShowHideForm = ({
         <TodoForm
           handleShowHideInputs={handleShowHideInputs}
           showAddTask={showAddTask}
+          setRefreshList={setRefreshList}
         />
       </div>
     );
