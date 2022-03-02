@@ -12,7 +12,18 @@
 
   --font-spartan: "League Spartan", sans-serif;
 }
+*::-webkit-scrollbar {
+  width: 5px;
+  color: #0db4c0;
+}
+*::-webkit-scrollbar-track {
+  background: white;
+}
 
+*::-webkit-scrollbar-thumb {
+  background-color: var(--coral-green);
+  border-radius: 20px;
+}
 * {
   margin: 0;
   padding: 0;
