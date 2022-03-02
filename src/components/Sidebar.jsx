@@ -13,7 +13,7 @@ import server from "../api/server";
 
 import "./../css/sidebar.css";
 
-const Sidebar = ({ setCollection }) => {
+const Sidebar = ({ setCollection, totalNumber, numberOfDone }) => {
   const [productivity, setProductivity] = useState({ done: 0, total: 0 });
 
   const getNumberOfTodos = async () => {
@@ -31,6 +31,7 @@ const Sidebar = ({ setCollection }) => {
     console.log(response);
   };
   useEffect(() => {
+    setCollection("Personal");
     getNumberOfTodos();
     getNumberOfDoneTodos();
   }, []);
@@ -78,14 +79,14 @@ const Sidebar = ({ setCollection }) => {
           <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
           <div className="item-num">
             <p>Done</p>
-            <p>{productivity.done}</p>
+            <p>{numberOfDone}</p>
           </div>
         </div>
         <div className="item glass">
           <FontAwesomeIcon icon={faTasks}></FontAwesomeIcon>
           <div className="item-num">
             <p>Total tasks</p>
-            <p>{productivity.total}</p>
+            <p>{totalNumber}</p>
           </div>
         </div>
       </div>

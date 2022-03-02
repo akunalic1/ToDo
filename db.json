@@ -1,49 +1,85 @@
 {
   "todos": [
     {
-      "title": "he",
+      "title": "glupy",
       "text": "",
-      "createdAt": "3/2/2022, 3:24:45 PM",
-      "status": "important",
-      "comment": "",
-      "completed": false,
-      "id": 30
-    },
-    {
-      "title": "sta je problem",
-      "text": "",
-      "createdAt": "3/2/2022, 3:24:56 PM",
-      "status": "important",
-      "comment": "",
-      "completed": false,
-      "id": 31
-    },
-    {
-      "title": "ne radi opet",
-      "text": "",
-      "createdAt": "3/2/2022, 3:25:11 PM",
-      "status": "important",
-      "comment": "",
-      "completed": false,
-      "id": 32
-    },
-    {
-      "title": "jednom radi",
-      "text": "",
-      "createdAt": "3/2/2022, 3:25:19 PM",
-      "status": "not-a-priority",
-      "comment": "neki komentar",
-      "completed": false,
-      "id": 33
-    },
-    {
-      "title": "pa odlicno",
-      "text": "",
-      "createdAt": "3/2/2022, 3:49:58 PM",
+      "createdAt": "3/2/2022, 7:14:34 PM",
       "status": "urgent",
       "comment": "",
       "completed": false,
-      "id": 51
+      "id": 58
+    },
+    {
+      "title": "defaultni task",
+      "text": "",
+      "createdAt": "3/2/2022, 8:29:37 PM",
+      "status": "default",
+      "comment": "",
+      "completed": true,
+      "id": 59
+    },
+    {
+      "title": "hhhhhhhhh",
+      "text": "",
+      "createdAt": "3/2/2022, 9:04:51 PM",
+      "status": "important",
+      "comment": "",
+      "completed": true,
+      "id": 62
+    },
+    {
+      "title": "sad ovo",
+      "text": "",
+      "createdAt": "3/2/2022, 10:17:03 PM",
+      "status": "not-a-priority",
+      "comment": "",
+      "completed": true,
+      "id": 63
+    },
+    {
+      "title": "kokokokok",
+      "text": "",
+      "createdAt": "3/2/2022, 10:17:44 PM",
+      "status": "not-a-priority",
+      "comment": "",
+      "completed": false,
+      "id": 64
+    },
+    {
+      "title": "lol",
+      "text": "",
+      "createdAt": "3/2/2022, 10:18:54 PM",
+      "status": "not-a-priority",
+      "comment": "",
+      "completed": false,
+      "id": 65
+    },
+    {
+      "title": "zmzm",
+      "text": "",
+      "createdAt": "3/2/2022, 10:19:17 PM",
+      "status": "important",
+      "comment": "",
+      "completed": true,
+      "id": 66
+    },
+    {
+      "title": "koji",
+      "text": "",
+      "createdAt": "3/2/2022, 11:33:23 PM",
+      "status": "important",
+      "comment": "",
+      "completed": true,
+      "id": 67
+    },
+    {
+      "title": "fsdf",
+      "text": "",
+      "createdAt": "3/3/2022, 12:43:39 AM",
+      "status": "urgent",
+      "comment": "",
+      "completed": false,
+      "id": 68
     }
   ]
 }

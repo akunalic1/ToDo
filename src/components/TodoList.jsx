@@ -3,7 +3,13 @@ import server from "../api/server";
 import Todo from "./Todo";
 import "./../css/todoList.css";
 
-const TodoList = ({ filter, refreshList, setRefreshList }) => {
+const TodoList = ({
+  filter,
+  refreshList,
+  setRefreshList,
+  setNumberOfDone,
+  setTotalNumber,
+}) => {
   const [allTodos, setAllTodos] = useState([]);
   const [filteredTodos, setFilteredTodos] = useState([]);
 
@@ -12,10 +18,11 @@ const TodoList = ({ filter, refreshList, setRefreshList }) => {
       const response = await server.get("/todos?_sort=createdAt&_order=desc");
 
       if (response.status === 200) {
+        setTotalNumber(response.data.length);
+        setNumberOfDone(response.data.filter((x) => x.completed).length);
         setAllTodos(response.data);
         setFilteredTodos(response.data);
       }
-      console.log(response);
     };
     fetchTodos();
     setRefreshList(false);
@@ -35,13 +42,22 @@ const TodoList = ({ filter, refreshList, setRefreshList }) => {
       default:
         setFilteredTodos(allTodos.filter((todo) => todo.status === filter));
     }
-  }, [filter]);
+  }, [filter, allTodos]);
+
+  useEffect(() => {
+    setRefreshList(false);
+  }, [filteredTodos]);
 
   return (
     <div className="todo-list glass">
       {filteredTodos
         ? filteredTodos.map((todo) => (
-            <Todo setRefreshList={setRefreshList} key={todo.id} todo={todo} />
+            <Todo
+              setRefreshList={setRefreshList}
+              refreshList={refreshList}
+              key={todo.id}
+              todo={todo}
+            />
           ))
         : null}
     </div>
