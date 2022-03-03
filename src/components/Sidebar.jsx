@@ -1,12 +1,8 @@
 import {
   faCheck,
-  faHome,
-  faPerson,
-  faSchool,
-  faShop,
   faFolderTree,
-  faShoppingCart,
   faTasks,
+  faAdd,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
@@ -17,30 +13,46 @@ import Todo from "./Todo";
 
 const Sidebar = ({ setCollection, totalNumber, numberOfDone }) => {
   const [collections, setCollections] = useState([]);
+  const [collectionInput, setCollectionInput] = useState("");
+  const [showCollectionInputField, setShowCollectionInputField] =
+    useState(false);
 
   useEffect(() => {
     setCollection("Personal");
-    const getDistinctCollections = async () => {
-      const response = await server.get("/todos");
-      if (response.status === 200) {
-        setCollections([
-          ...new Set(response.data.map((todo) => todo.collection)),
-        ]);
-      }
-      console.log("kolekcije ", collections);
-    };
-    getDistinctCollections();
   }, []);
+  useEffect(() => {
+    const getCollections = async () => {
+      const response = await server.get("/collections");
+      if (response.status === 200) {
+        console.log(response);
+        setCollections(response.data.map((x) => x.collection));
+      }
+    };
+    getCollections();
+  }, [collections]);
 
-  const renderColection = (collectionName) => {
+  const submitCollectionName = (e) => {
+    e.preventDefault();
+    const addCollection = async () => {
+      const response = await server.post("/collections", {
+        collection: collectionInput,
+      });
+      console.log(response);
+    };
+    addCollection();
+    setCollectionInput("");
+    setShowCollectionInputField(false);
+  };
+
+  const renderColection = (name) => {
     return (
       <button
-        key={collectionName}
-        onClick={(e) => setCollection(collectionName)}
+        key={name}
+        onClick={(e) => setCollection(name)}
         className="item  glass"
       >
         <FontAwesomeIcon icon={faFolderTree}></FontAwesomeIcon>
-        <p>{collectionName}</p>
+        <p>{name}</p>
       </button>
     );
   };
@@ -48,7 +60,7 @@ const Sidebar = ({ setCollection, totalNumber, numberOfDone }) => {
   const renderCollections = () => {
     return (
       <div className="collections">
-        {collections.map((name) => renderColection(name))}
+        {collections.map((item) => renderColection(item))}
       </div>
     );
   };
@@ -76,7 +88,28 @@ const Sidebar = ({ setCollection, totalNumber, numberOfDone }) => {
   return (
     <div className="sidebar glass">
       <div className="glass collections-wrapper">
-        <div className="title">Collections</div>
+        <div className="title">
+          <div>Collections</div>
+          <button
+            onClick={(e) =>
+              setShowCollectionInputField(!showCollectionInputField)
+            }
+            className="add-collection-button "
+          >
+            <FontAwesomeIcon icon={faAdd}></FontAwesomeIcon>
+          </button>
+        </div>
+        <form
+          className={showCollectionInputField ? "" : "hide"}
+          onSubmit={submitCollectionName}
+        >
+          <input
+            value={collectionInput}
+            onChange={(e) => setCollectionInput(e.target.value)}
+            className="create-collection-field glass"
+            placeholder="Type here..."
+          ></input>
+        </form>
         {renderCollections()}
       </div>
       <div className="todo-statistics glass">

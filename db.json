@@ -100,5 +100,23 @@
       "collection": "Personal",
       "id": 70
     }
+  ],
+  "collections": [
+    {
+      "id": 1,
+      "collection": "Home"
+    },
+    {
+      "id": 2,
+      "collection": "Personal"
+    },
+    {
+      "collection": "nova kolekcija",
+      "id": 3
+    },
+    {
+      "collection": "najnovija",
+      "id": 4
+    }
   ]
 }

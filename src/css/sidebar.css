@@ -1,7 +1,7 @@
 .sidebar {
   color: var(--dark-blue);
   height: 100vh;
-  width: 18rem;
+  width: 20rem;
   padding: 1rem;
   font-family: var(--font-spartan);
   border-right: 1px solid white;
@@ -13,10 +13,14 @@
   bottom: 0;
 }
 .title {
-  font-size: 1.5rem;
-  margin-bottom: 0.7rem;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
 }
-.title,
+.title {
+  padding: 0.7rem 0rem;
+}
 .item,
 .collections-wrapper,
 .todo-statistics {
@@ -31,7 +35,7 @@
 }
 
 .item {
-  font-size: larger;
+  font-size: large;
   display: flex;
   align-items: flex-end;
   gap: 10px;
@@ -43,4 +47,15 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+.add-collection-button {
+  border: 1px solid var(--dark-blue);
+  padding: 0 0.3rem;
+  border-radius: 5px;
+}
+.create-collection-field {
+  font-size: larger;
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 0.7rem;
 }
