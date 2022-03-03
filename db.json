@@ -7,6 +7,7 @@
       "status": "urgent",
       "comment": "",
       "completed": false,
+      "collection": "Home",
       "id": 58
     },
     {
@@ -16,6 +17,7 @@
       "status": "default",
       "comment": "",
       "completed": true,
+      "collection": "Home",
       "id": 59
     },
     {
@@ -25,6 +27,7 @@
       "status": "important",
       "comment": "",
       "completed": true,
+      "collection": "Personal",
       "id": 62
     },
     {
@@ -34,16 +37,8 @@
       "status": "not-a-priority",
       "comment": "",
       "completed": true,
+      "collection": "Home",
       "id": 63
-    },
-    {
-      "title": "kokokokok",
-      "text": "",
-      "createdAt": "3/2/2022, 10:17:44 PM",
-      "status": "not-a-priority",
-      "comment": "",
-      "completed": false,
-      "id": 64
     },
     {
       "title": "lol",
@@ -52,6 +47,7 @@
       "status": "not-a-priority",
       "comment": "",
       "completed": false,
+      "collection": "Home",
       "id": 65
     },
     {
@@ -61,6 +57,7 @@
       "status": "important",
       "comment": "",
       "completed": true,
+      "collection": "Home",
       "id": 66
     },
     {
@@ -70,6 +67,7 @@
       "status": "important",
       "comment": "",
       "completed": true,
+      "collection": "Personal",
       "id": 67
     },
     {
@@ -78,8 +76,29 @@
       "createdAt": "3/3/2022, 12:43:39 AM",
       "status": "urgent",
       "comment": "",
-      "completed": false,
+      "completed": true,
+      "collection": "Home",
       "id": 68
+    },
+    {
+      "title": "novi todo u home kolekciji",
+      "text": "",
+      "createdAt": "3/3/2022, 9:42:39 AM",
+      "status": "important",
+      "comment": "",
+      "completed": false,
+      "collection": "Home",
+      "id": 69
+    },
+    {
+      "title": "novi todo upersonal kolekciji",
+      "text": "",
+      "createdAt": "3/3/2022, 9:43:29 AM",
+      "status": "not-a-priority",
+      "comment": "",
+      "completed": false,
+      "collection": "Personal",
+      "id": 70
     }
   ]
 }

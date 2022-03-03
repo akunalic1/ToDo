@@ -4,6 +4,7 @@ import {
   faPerson,
   faSchool,
   faShop,
+  faFolderTree,
   faShoppingCart,
   faTasks,
 } from "@fortawesome/free-solid-svg-icons";
@@ -12,62 +13,42 @@ import React, { useEffect, useState } from "react";
 import server from "../api/server";
 
 import "./../css/sidebar.css";
+import Todo from "./Todo";
 
 const Sidebar = ({ setCollection, totalNumber, numberOfDone }) => {
-  const [productivity, setProductivity] = useState({ done: 0, total: 0 });
+  const [collections, setCollections] = useState([]);
 
-  const getNumberOfTodos = async () => {
-    const response = await server.get("/todos");
-    response.status === 200
-      ? setProductivity({ ...productivity, total: response.data.length })
-      : console.log(response);
-    console.log(response);
-  };
-  const getNumberOfDoneTodos = async () => {
-    const response = await server.get("/todos?completed=true");
-    response.status === 200
-      ? setProductivity({ ...productivity, done: response.data.length })
-      : console.log(response);
-    console.log(response);
-  };
   useEffect(() => {
     setCollection("Personal");
-    getNumberOfTodos();
-    getNumberOfDoneTodos();
+    const getDistinctCollections = async () => {
+      const response = await server.get("/todos");
+      if (response.status === 200) {
+        setCollections([
+          ...new Set(response.data.map((todo) => todo.collection)),
+        ]);
+      }
+      console.log("kolekcije ", collections);
+    };
+    getDistinctCollections();
   }, []);
+
+  const renderColection = (collectionName) => {
+    return (
+      <button
+        key={collectionName}
+        onClick={(e) => setCollection(collectionName)}
+        className="item  glass"
+      >
+        <FontAwesomeIcon icon={faFolderTree}></FontAwesomeIcon>
+        <p>{collectionName}</p>
+      </button>
+    );
+  };
 
   const renderCollections = () => {
     return (
       <div className="collections">
-        <button
-          onClick={(e) => setCollection("School")}
-          className="item  glass"
-        >
-          <FontAwesomeIcon icon={faSchool}></FontAwesomeIcon>
-          <p>School</p>
-        </button>
-        <button onClick={(e) => setCollection("Shop")} className="item glass">
-          <FontAwesomeIcon icon={faShop}></FontAwesomeIcon>
-          <p>Shop</p>
-        </button>
-        <button
-          onClick={(e) => setCollection("Shopping")}
-          className="item glass"
-        >
-          <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
-          <p>Shopping</p>
-        </button>
-        <button onClick={(e) => setCollection("Home")} className="item glass">
-          <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
-          <p>Home</p>
-        </button>
-        <button
-          onClick={(e) => setCollection("Personal")}
-          className="item glass"
-        >
-          <FontAwesomeIcon icon={faPerson}></FontAwesomeIcon>
-          <p>Personal</p>
-        </button>
+        {collections.map((name) => renderColection(name))}
       </div>
     );
   };
