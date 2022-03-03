@@ -17,10 +17,12 @@ const TodoWorkspace = ({ collection, setNumberOfDone, setTotalNumber }) => {
       <div className="workspace-content">
         <div className="title">{collection}</div>
         <FormContainer
+          currentCollection={collection}
           handleFilterOption={handleFilterOption}
           setRefreshList={setRefreshList}
         ></FormContainer>
         <TodoList
+          collection={collection}
           filter={filterOption}
           refreshList={refreshList}
           setRefreshList={setRefreshList}

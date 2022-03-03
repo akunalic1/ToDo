@@ -3,6 +3,7 @@ import TodoForm from "./TodoForm";
 import server from "../api/server";
 
 const CreateTodo = ({
+  currentCollection,
   setRefreshList,
   addTaskClicked,
   handleCloseInputFields,
@@ -22,6 +23,7 @@ const CreateTodo = ({
         status: statusList.length === 0 ? "default" : statusList[0],
         comment: "",
         completed: false,
+        collection: currentCollection,
       });
       setResponse(response);
       setStatusList([]);

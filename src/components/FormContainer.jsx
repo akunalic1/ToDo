@@ -8,7 +8,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FilterTodo from "./FilterTodo";
 import CreateTodo from "./CreateTodo";
 
-const FormContainer = ({ handleFilterOption, setRefreshList }) => {
+const FormContainer = ({
+  currentCollection,
+  handleFilterOption,
+  setRefreshList,
+}) => {
   const [addTaskClicked, setAddTaskClicked] = useState(false);
   const [showFilterList, setShowFilterList] = useState(false);
   const handleFilterListOnClick = (e) => {
@@ -50,6 +54,7 @@ const FormContainer = ({ handleFilterOption, setRefreshList }) => {
           </div>
         </div>
         <CreateTodo
+          currentCollection={currentCollection}
           setRefreshList={setRefreshList}
           addTaskClicked={addTaskClicked}
           handleCloseInputFields={handleCloseInputFields}

@@ -4,6 +4,7 @@ import Todo from "./Todo";
 import "./../css/todoList.css";
 
 const TodoList = ({
+  collection,
   filter,
   refreshList,
   setRefreshList,
@@ -15,7 +16,9 @@ const TodoList = ({
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const response = await server.get("/todos?_sort=createdAt&_order=desc");
+      const response = await server.get(
+        `/todos?collection=${collection}&_sort=createdAt&_order=desc`
+      );
 
       if (response.status === 200) {
         setTotalNumber(response.data.length);
@@ -26,7 +29,7 @@ const TodoList = ({
     };
     fetchTodos();
     setRefreshList(false);
-  }, [refreshList]);
+  }, [refreshList, collection]);
 
   useEffect(() => {
     switch (filter) {
