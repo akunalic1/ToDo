@@ -95,5 +95,5 @@
 }
 .completed-todo,
 .completed-todo button {
-  background-color: gray;
+  background-color: gray !important;
 }
