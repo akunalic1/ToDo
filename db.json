@@ -82,10 +82,10 @@
     },
     {
       "title": "novi todo u home kolekciji",
-      "text": "",
+      "text": "radi li edit",
       "createdAt": "3/3/2022, 9:42:39 AM",
-      "status": "important",
-      "comment": "",
+      "status": "not-a-priority",
+      "comment": "sasassas",
       "completed": false,
       "collection": "Home",
       "id": 69
@@ -99,6 +99,16 @@
       "completed": false,
       "collection": "Personal",
       "id": 70
+    },
+    {
+      "title": "ehehehhe",
+      "text": "",
+      "createdAt": "3/3/2022, 5:06:39 PM",
+      "status": "default",
+      "comment": "",
+      "completed": false,
+      "collection": "zmzmzm",
+      "id": 71
     }
   ],
   "collections": [
@@ -107,16 +117,12 @@
       "collection": "Home"
     },
     {
-      "id": 2,
-      "collection": "Personal"
+      "collection": "zmzmzms",
+      "id": 6
     },
     {
-      "collection": "nova kolekcija",
-      "id": 3
-    },
-    {
-      "collection": "najnovija",
-      "id": 4
+      "collection": "zmz",
+      "id": 7
     }
   ]
 }

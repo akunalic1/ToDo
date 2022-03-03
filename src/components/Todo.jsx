@@ -16,6 +16,11 @@ const Todo = ({ todo, setRefreshList, refreshList }) => {
 
   const handleDeleteTodo = (e) => {
     setOpenDelete(!openDelete);
+    setOpenEdit(false);
+  };
+  const handleEditTodo = () => {
+    setOpenDelete(false);
+    setOpenEdit(!openEdit);
   };
   const handleCheckboxClick = (e) => {
     console.log(todoRef.current);
@@ -75,7 +80,7 @@ const Todo = ({ todo, setRefreshList, refreshList }) => {
         </div>
 
         <div className="todo-icons">
-          <button onClick={(e) => setOpenEdit(!openEdit)}>
+          <button onClick={handleEditTodo}>
             <FontAwesomeIcon icon={faEdit}></FontAwesomeIcon>
           </button>
           <button onClick={handleDeleteTodo}>

@@ -99,7 +99,6 @@ input:focus {
 }
 .filter-options {
   position: absolute;
-  background-color: red;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -122,4 +121,21 @@ input:focus {
 }
 .error-message {
   color: red;
+}
+.title-header {
+  position: relative;
+}
+.options {
+  padding: 0.3rem 0.7rem;
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  right: 1em;
+  top: 0.5rem;
+}
+.no-border-btn {
+  border: none;
+}
+.focus-field {
+  background-color: var(--coral-green) !important;
 }

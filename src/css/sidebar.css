@@ -49,7 +49,7 @@
   justify-content: space-between;
 }
 .add-collection-button {
-  border: 1px solid var(--dark-blue);
+  border: 1px solid rgb(181, 181, 181);
   padding: 0 0.3rem;
   border-radius: 5px;
 }

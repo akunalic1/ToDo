@@ -5,41 +5,103 @@ import {
   faAdd,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import server from "../api/server";
 
 import "./../css/sidebar.css";
 import Todo from "./Todo";
 
-const Sidebar = ({ setCollection, totalNumber, numberOfDone }) => {
+const Sidebar = ({
+  collectionForDelete,
+  collectionForEdit,
+  setCollectionForDelete,
+  setCollectionForEdit,
+  setCollection,
+  totalNumber,
+  numberOfDone,
+}) => {
   const [collections, setCollections] = useState([]);
   const [collectionInput, setCollectionInput] = useState("");
   const [showCollectionInputField, setShowCollectionInputField] =
     useState(false);
+  const [collectionAdded, setCollectionAdded] = useState(false);
 
+  const createCollectionFieldRef = createRef();
   useEffect(() => {
-    setCollection("Personal");
+    setCollection("Home");
   }, []);
+
   useEffect(() => {
     const getCollections = async () => {
       const response = await server.get("/collections");
       if (response.status === 200) {
         console.log(response);
-        setCollections(response.data.map((x) => x.collection));
+        setCollections(response.data);
+        setCollectionAdded(false);
       }
     };
     getCollections();
-  }, [collections]);
+  }, [collectionAdded, collectionForDelete]);
+
+  useEffect(() => {
+    if (collectionForEdit !== "") {
+      setCollectionInput(collectionForEdit);
+      setShowCollectionInputField(true);
+      createCollectionFieldRef.current.classList.add("focus-field");
+    } else {
+      setCollectionInput("");
+      setShowCollectionInputField(false);
+      createCollectionFieldRef.current.classList.remove("focus-field");
+    }
+  }, [collectionForEdit]);
+
+  useEffect(() => {
+    const deleteCollection = async () => {
+      const res1 = await server
+        .delete(
+          `/collections/${
+            collections.find((x) => x.collection === collectionForDelete).id
+          }`
+        )
+        .catch((e) => console.log(e));
+      console.log(
+        collections.find((x) => x.collection === collectionForDelete).id
+      );
+      setCollection("Home");
+      setCollectionForDelete("");
+      console.log("Obrsisano ", collectionForDelete);
+    };
+
+    if (collectionForDelete.length) deleteCollection();
+  }, [collectionForDelete]);
 
   const submitCollectionName = (e) => {
     e.preventDefault();
-    const addCollection = async () => {
-      const response = await server.post("/collections", {
-        collection: collectionInput,
-      });
-      console.log(response);
-    };
-    addCollection();
+    if (!collectionForEdit.length) {
+      const addCollection = async () => {
+        const response = await server.post("/collections", {
+          collection: collectionInput,
+        });
+        setCollectionAdded(true);
+        console.log(response);
+      };
+      addCollection();
+    } else {
+      const editCollection = async () => {
+        const response = await server.patch(
+          `/collections/${
+            collections.find((x) => x.collection === collectionForEdit).id
+          }`,
+          {
+            collection: collectionInput,
+          }
+        );
+        setCollectionAdded(true);
+        setCollectionForEdit("");
+        console.log(response);
+      };
+      editCollection();
+    }
     setCollectionInput("");
     setShowCollectionInputField(false);
   };
@@ -48,7 +110,10 @@ const Sidebar = ({ setCollection, totalNumber, numberOfDone }) => {
     return (
       <button
         key={name}
-        onClick={(e) => setCollection(name)}
+        onClick={(e) => {
+          setCollection(name);
+          setShowCollectionInputField(false);
+        }}
         className="item  glass"
       >
         <FontAwesomeIcon icon={faFolderTree}></FontAwesomeIcon>
@@ -60,7 +125,7 @@ const Sidebar = ({ setCollection, totalNumber, numberOfDone }) => {
   const renderCollections = () => {
     return (
       <div className="collections">
-        {collections.map((item) => renderColection(item))}
+        {collections.map((item) => renderColection(item.collection))}
       </div>
     );
   };
@@ -104,6 +169,7 @@ const Sidebar = ({ setCollection, totalNumber, numberOfDone }) => {
           onSubmit={submitCollectionName}
         >
           <input
+            ref={createCollectionFieldRef}
             value={collectionInput}
             onChange={(e) => setCollectionInput(e.target.value)}
             className="create-collection-field glass"
