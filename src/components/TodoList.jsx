@@ -3,6 +3,12 @@ import server from "../api/server";
 import Todo from "./Todo";
 import "./../css/todoList.css";
 
+const sortList = (todos) => {
+  return todos.sort((a, b) => {
+    return a.completed - b.completed;
+  });
+};
+
 const TodoList = ({
   collection,
   filter,
@@ -17,13 +23,13 @@ const TodoList = ({
   useEffect(() => {
     const fetchTodos = async () => {
       const response = await server.get(
-        `/todos?collection=${collection}&_sort=createdAt&_order=desc`
+        `/todos?collection=${collection.id}&_sort=createdAt&_order=desc`
       );
 
       if (response.status === 200) {
         setTotalNumber(response.data.length);
         setNumberOfDone(response.data.filter((x) => x.completed).length);
-        setAllTodos(response.data);
+        setAllTodos(sortList(response.data));
         setFilteredTodos(response.data);
       }
     };

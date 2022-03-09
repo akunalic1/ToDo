@@ -28,7 +28,7 @@ const Sidebar = ({
 
   const createCollectionFieldRef = createRef();
   useEffect(() => {
-    setCollection("Home");
+    setCollection({ id: 1, collection: "Home" });
   }, []);
 
   useEffect(() => {
@@ -44,9 +44,14 @@ const Sidebar = ({
   }, [collectionAdded, collectionForDelete]);
 
   useEffect(() => {
-    if (collectionForEdit !== "") {
-      setCollectionInput(collectionForEdit);
+    console.log("collectionForEdit      ", collectionForEdit);
+    if (
+      Object.keys(collectionForEdit).length !== 0 &&
+      collectionForEdit.id !== 1
+    ) {
       setShowCollectionInputField(true);
+      setCollectionInput(collectionForEdit.collection);
+      console.log("otvoren input za edit ", collectionInput);
       createCollectionFieldRef.current.classList.add("focus-field");
     } else {
       setCollectionInput("");
@@ -58,26 +63,26 @@ const Sidebar = ({
   useEffect(() => {
     const deleteCollection = async () => {
       const res1 = await server
-        .delete(
-          `/collections/${
-            collections.find((x) => x.collection === collectionForDelete).id
-          }`
-        )
+        .delete(`/collections/${collectionForDelete.id}`)
         .catch((e) => console.log(e));
-      console.log(
-        collections.find((x) => x.collection === collectionForDelete).id
-      );
-      setCollection("Home");
+      const res = await server({
+        method: "DELETE",
+        url: "/todos",
+        params: {
+          collection: collectionForDelete.id,
+        },
+      }).catch((e) => console.log(e));
+      setCollection({ id: 1, collection: "Home" });
       setCollectionForDelete("");
       console.log("Obrsisano ", collectionForDelete);
     };
 
-    if (collectionForDelete.length) deleteCollection();
+    if (collectionForDelete.collection) deleteCollection();
   }, [collectionForDelete]);
 
   const submitCollectionName = (e) => {
     e.preventDefault();
-    if (!collectionForEdit.length) {
+    if (!collectionForEdit.collection) {
       const addCollection = async () => {
         const response = await server.post("/collections", {
           collection: collectionInput,
@@ -89,15 +94,14 @@ const Sidebar = ({
     } else {
       const editCollection = async () => {
         const response = await server.patch(
-          `/collections/${
-            collections.find((x) => x.collection === collectionForEdit).id
-          }`,
+          `/collections/${collectionForEdit.id}`,
           {
             collection: collectionInput,
           }
         );
+        setCollectionForEdit({});
         setCollectionAdded(true);
-        setCollectionForEdit("");
+        setCollection({ ...collectionForEdit, collection: collectionInput });
         console.log(response);
       };
       editCollection();
@@ -106,18 +110,18 @@ const Sidebar = ({
     setShowCollectionInputField(false);
   };
 
-  const renderColection = (name) => {
+  const renderColection = (item) => {
     return (
       <button
-        key={name}
+        key={item.collection}
         onClick={(e) => {
-          setCollection(name);
+          setCollection(item);
           setShowCollectionInputField(false);
         }}
         className="item  glass"
       >
         <FontAwesomeIcon icon={faFolderTree}></FontAwesomeIcon>
-        <p>{name}</p>
+        <p>{item.collection}</p>
       </button>
     );
   };
@@ -125,7 +129,7 @@ const Sidebar = ({
   const renderCollections = () => {
     return (
       <div className="collections">
-        {collections.map((item) => renderColection(item.collection))}
+        {collections.map((item) => renderColection(item))}
       </div>
     );
   };
@@ -150,6 +154,7 @@ const Sidebar = ({
       </div>
     );
   };
+  console.log(showCollectionInputField);
   return (
     <div className="sidebar glass">
       <div className="glass collections-wrapper">

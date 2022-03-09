@@ -4,11 +4,11 @@ import Sidebar from "./Sidebar";
 import TodoWorkspace from "./TodoWorkspace";
 
 const App = () => {
-  const [collection, setCollection] = useState("Home");
+  const [collection, setCollection] = useState({ id: 1, collection: "Home" });
   const [numberOfDone, setNumberOfDone] = useState(0);
   const [totalNumber, setTotalNumber] = useState(0);
-  const [collectionForEdit, setCollectionForEdit] = useState("");
-  const [collectionForDelete, setCollectionForDelete] = useState("");
+  const [collectionForEdit, setCollectionForEdit] = useState({});
+  const [collectionForDelete, setCollectionForDelete] = useState({});
   return (
     <>
       {/*

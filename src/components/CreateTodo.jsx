@@ -8,6 +8,7 @@ const CreateTodo = ({
   addTaskClicked,
   handleCloseInputFields,
 }) => {
+  console.log("current collection unutar create todo", currentCollection);
   const handleUpdateTodo = (
     title,
     description,
@@ -23,7 +24,7 @@ const CreateTodo = ({
         status: statusList.length === 0 ? "default" : statusList[0],
         comment: "",
         completed: false,
-        collection: currentCollection,
+        collection: currentCollection.id,
       });
       setResponse(response);
       setStatusList([]);

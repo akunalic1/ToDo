@@ -7,7 +7,7 @@
       "status": "urgent",
       "comment": "",
       "completed": false,
-      "collection": "Home",
+      "collection": 1,
       "id": 58
     },
     {
@@ -17,7 +17,7 @@
       "status": "default",
       "comment": "",
       "completed": true,
-      "collection": "Home",
+      "collection": 1,
       "id": 59
     },
     {
@@ -27,7 +27,7 @@
       "status": "important",
       "comment": "",
       "completed": true,
-      "collection": "Personal",
+      "collection": 6,
       "id": 62
     },
     {
@@ -37,7 +37,7 @@
       "status": "not-a-priority",
       "comment": "",
       "completed": true,
-      "collection": "Home",
+      "collection": 1,
       "id": 63
     },
     {
@@ -47,7 +47,7 @@
       "status": "not-a-priority",
       "comment": "",
       "completed": false,
-      "collection": "Home",
+      "collection": 1,
       "id": 65
     },
     {
@@ -57,7 +57,7 @@
       "status": "important",
       "comment": "",
       "completed": true,
-      "collection": "Home",
+      "collection": 1,
       "id": 66
     },
     {
@@ -67,7 +67,7 @@
       "status": "important",
       "comment": "",
       "completed": true,
-      "collection": "Personal",
+      "collection": 6,
       "id": 67
     },
     {
@@ -77,17 +77,17 @@
       "status": "urgent",
       "comment": "",
       "completed": true,
-      "collection": "Home",
+      "collection": 1,
       "id": 68
     },
     {
       "title": "novi todo u home kolekciji",
-      "text": "radi li edit",
+      "text": "radi li edit radim ja sad",
       "createdAt": "3/3/2022, 9:42:39 AM",
       "status": "not-a-priority",
       "comment": "sasassas",
       "completed": false,
-      "collection": "Home",
+      "collection": 1,
       "id": 69
     },
     {
@@ -97,7 +97,7 @@
       "status": "not-a-priority",
       "comment": "",
       "completed": false,
-      "collection": "Personal",
+      "collection": 6,
       "id": 70
     },
     {
@@ -107,8 +107,105 @@
       "status": "default",
       "comment": "",
       "completed": false,
-      "collection": "zmzmzm",
+      "collection": 6,
       "id": 71
+    },
+    {
+      "title": "jojo",
+      "text": "",
+      "createdAt": "3/3/2022, 7:14:14 PM",
+      "status": "important",
+      "comment": "",
+      "completed": false,
+      "collection": 1,
+      "id": 72
+    },
+    {
+      "title": "jojoj",
+      "text": "",
+      "createdAt": "3/3/2022, 7:16:53 PM",
+      "status": "important",
+      "comment": "",
+      "completed": false,
+      "id": 73
+    },
+    {
+      "title": "novi task",
+      "text": "",
+      "createdAt": "3/3/2022, 7:19:26 PM",
+      "status": "urgent",
+      "comment": "",
+      "completed": false,
+      "collection": "zmzmzms",
+      "id": 74
+    },
+    {
+      "title": "moooijjik",
+      "text": "kllllllll",
+      "createdAt": "3/3/2022, 7:20:51 PM",
+      "status": "urgent",
+      "comment": "",
+      "completed": false,
+      "id": 75
+    },
+    {
+      "title": "nema",
+      "text": "",
+      "createdAt": "3/3/2022, 7:22:21 PM",
+      "status": "default",
+      "comment": "",
+      "completed": false,
+      "id": 76
+    },
+    {
+      "title": "dodajem sad",
+      "text": "",
+      "createdAt": "3/3/2022, 7:24:24 PM",
+      "status": "urgent",
+      "comment": "",
+      "completed": false,
+      "collection": 7,
+      "id": 77
+    },
+    {
+      "title": "Jel radis??",
+      "text": "",
+      "createdAt": "3/3/2022, 7:29:22 PM",
+      "status": "important",
+      "comment": "",
+      "completed": false,
+      "collection": 1,
+      "id": 78
+    },
+    {
+      "title": "novi task",
+      "text": "",
+      "createdAt": "3/3/2022, 7:56:47 PM",
+      "status": "important",
+      "comment": "",
+      "completed": false,
+      "collection": 1,
+      "id": 79
+    },
+    {
+      "title": "najnoviji task",
+      "text": "",
+      "createdAt": "3/3/2022, 7:57:13 PM",
+      "status": "default",
+      "comment": "com",
+      "completed": false,
+      "collection": 8,
+      "id": 80
+    },
+    {
+      "title": "ijohhj",
+      "text": "dsdsrfsdfs",
+      "createdAt": "3/3/2022, 8:11:14 PM",
+      "status": "not-a-priority",
+      "comment": "fgdfg",
+      "completed": false,
+      "collection": 9,
+      "id": 81
     }
   ],
   "collections": [
@@ -117,12 +214,8 @@
       "collection": "Home"
     },
     {
-      "collection": "zmzmzms",
-      "id": 6
-    },
-    {
-      "collection": "zmz",
-      "id": 7
+      "collection": "nova",
+      "id": 2
     }
   ]
 }

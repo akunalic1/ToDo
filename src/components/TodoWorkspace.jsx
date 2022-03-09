@@ -35,9 +35,11 @@ const TodoWorkspace = ({
       <div className="workspace-content">
         <div className="title-header">
           <div className="title">
-            <div>{collection}</div>
+            <div>{collection.collection}</div>
             <button
-              className={`no-border-btn ${collection === "Home" ? "hide" : ""}`}
+              className={`no-border-btn ${
+                collection.collection === "Home" ? "hide" : ""
+              }`}
               onClick={(e) => setOpenCollectionOptions(!openCollectionOptions)}
             >
               <FontAwesomeIcon icon={faEllipsisV} />
@@ -54,9 +56,7 @@ const TodoWorkspace = ({
             </button>
             <button
               className="no-border-btn"
-              onClick={(e) =>
-                setCollectionForEdit(collectionForEdit ? "" : collection)
-              }
+              onClick={(e) => setCollectionForEdit(collection)}
             >
               <FontAwesomeIcon icon={faEdit} />
             </button>
