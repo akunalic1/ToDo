@@ -62,16 +62,18 @@ const Sidebar = ({
 
   useEffect(() => {
     const deleteCollection = async () => {
-      const res1 = await server
-        .delete(`/collections/${collectionForDelete.id}`)
-        .catch((e) => console.log(e));
-      const res = await server({
-        method: "DELETE",
-        url: "/todos",
-        params: {
-          collection: collectionForDelete.id,
-        },
-      }).catch((e) => console.log(e));
+      const res1 = await server.delete(
+        `/collections/${collectionForDelete.id}`
+      );
+
+      let allTodos = await server.get("/todos");
+      if (allTodos.status !== 200) console.log("Greska");
+      else
+        allTodos = allTodos.data.forEach((todo) => {
+          if (todo.collection === collectionForDelete.id)
+            server.delete(`/todos/${todo.id}`);
+        });
+
       setCollection({ id: 1, collection: "Home" });
       setCollectionForDelete("");
       console.log("Obrsisano ", collectionForDelete);

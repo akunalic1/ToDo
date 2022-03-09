@@ -11,169 +11,12 @@
       "id": 58
     },
     {
-      "title": "defaultni task",
-      "text": "",
-      "createdAt": "3/2/2022, 8:29:37 PM",
-      "status": "default",
-      "comment": "",
-      "completed": true,
-      "collection": 1,
-      "id": 59
-    },
-    {
-      "title": "hhhhhhhhh",
-      "text": "",
-      "createdAt": "3/2/2022, 9:04:51 PM",
-      "status": "important",
-      "comment": "",
-      "completed": true,
-      "collection": 6,
-      "id": 62
-    },
-    {
-      "title": "sad ovo",
-      "text": "",
-      "createdAt": "3/2/2022, 10:17:03 PM",
-      "status": "not-a-priority",
-      "comment": "",
-      "completed": true,
-      "collection": 1,
-      "id": 63
-    },
-    {
-      "title": "lol",
-      "text": "",
-      "createdAt": "3/2/2022, 10:18:54 PM",
-      "status": "not-a-priority",
-      "comment": "",
-      "completed": false,
-      "collection": 1,
-      "id": 65
-    },
-    {
-      "title": "zmzm",
-      "text": "",
-      "createdAt": "3/2/2022, 10:19:17 PM",
-      "status": "important",
-      "comment": "",
-      "completed": true,
-      "collection": 1,
-      "id": 66
-    },
-    {
-      "title": "koji",
-      "text": "",
-      "createdAt": "3/2/2022, 11:33:23 PM",
-      "status": "important",
-      "comment": "",
-      "completed": true,
-      "collection": 6,
-      "id": 67
-    },
-    {
-      "title": "fsdf",
-      "text": "",
-      "createdAt": "3/3/2022, 12:43:39 AM",
-      "status": "urgent",
-      "comment": "",
-      "completed": true,
-      "collection": 1,
-      "id": 68
-    },
-    {
-      "title": "novi todo u home kolekciji",
-      "text": "radi li edit radim ja sad",
-      "createdAt": "3/3/2022, 9:42:39 AM",
-      "status": "not-a-priority",
-      "comment": "sasassas",
-      "completed": false,
-      "collection": 1,
-      "id": 69
-    },
-    {
-      "title": "novi todo upersonal kolekciji",
-      "text": "",
-      "createdAt": "3/3/2022, 9:43:29 AM",
-      "status": "not-a-priority",
-      "comment": "",
-      "completed": false,
-      "collection": 6,
-      "id": 70
-    },
-    {
-      "title": "ehehehhe",
-      "text": "",
-      "createdAt": "3/3/2022, 5:06:39 PM",
-      "status": "default",
-      "comment": "",
-      "completed": false,
-      "collection": 6,
-      "id": 71
-    },
-    {
-      "title": "jojo",
-      "text": "",
-      "createdAt": "3/3/2022, 7:14:14 PM",
-      "status": "important",
-      "comment": "",
-      "completed": false,
-      "collection": 1,
-      "id": 72
-    },
-    {
-      "title": "jojoj",
-      "text": "",
-      "createdAt": "3/3/2022, 7:16:53 PM",
-      "status": "important",
-      "comment": "",
-      "completed": false,
-      "id": 73
-    },
-    {
-      "title": "novi task",
-      "text": "",
-      "createdAt": "3/3/2022, 7:19:26 PM",
-      "status": "urgent",
-      "comment": "",
-      "completed": false,
-      "collection": "zmzmzms",
-      "id": 74
-    },
-    {
-      "title": "moooijjik",
-      "text": "kllllllll",
-      "createdAt": "3/3/2022, 7:20:51 PM",
-      "status": "urgent",
-      "comment": "",
-      "completed": false,
-      "id": 75
-    },
-    {
-      "title": "nema",
-      "text": "",
-      "createdAt": "3/3/2022, 7:22:21 PM",
-      "status": "default",
-      "comment": "",
-      "completed": false,
-      "id": 76
-    },
-    {
-      "title": "dodajem sad",
-      "text": "",
-      "createdAt": "3/3/2022, 7:24:24 PM",
-      "status": "urgent",
-      "comment": "",
-      "completed": false,
-      "collection": 7,
-      "id": 77
-    },
-    {
       "title": "Jel radis??",
       "text": "",
       "createdAt": "3/3/2022, 7:29:22 PM",
       "status": "important",
       "comment": "",
-      "completed": false,
+      "completed": true,
       "collection": 1,
       "id": 78
     },
@@ -186,36 +29,12 @@
       "completed": false,
       "collection": 1,
       "id": 79
-    },
-    {
-      "title": "najnoviji task",
-      "text": "",
-      "createdAt": "3/3/2022, 7:57:13 PM",
-      "status": "default",
-      "comment": "com",
-      "completed": false,
-      "collection": 8,
-      "id": 80
-    },
-    {
-      "title": "ijohhj",
-      "text": "dsdsrfsdfs",
-      "createdAt": "3/3/2022, 8:11:14 PM",
-      "status": "not-a-priority",
-      "comment": "fgdfg",
-      "completed": false,
-      "collection": 9,
-      "id": 81
     }
   ],
   "collections": [
     {
       "id": 1,
       "collection": "Home"
-    },
-    {
-      "collection": "nova",
-      "id": 2
     }
   ]
 }
