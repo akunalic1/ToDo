@@ -9,10 +9,6 @@ const Comment = ({ todo }) => {
   const [openComment, setOpenComent] = useState(false);
   const [commentText, setCommentText] = useState(todo.comment);
 
-  useEffect(() => {
-    setCommentExist(todo.comment !== "");
-  }, []);
-
   const handleOpenComment = (e) => {
     setOpenComent(!openComment);
   };
@@ -35,6 +31,10 @@ const Comment = ({ todo }) => {
     setOpenComent(false);
     setCommentText("");
   };
+
+  useEffect(() => {
+    setCommentExist(todo.comment !== "");
+  }, []);
   return (
     <div className="comment-wrapper">
       <button onClick={handleOpenComment} className="comment-btn">

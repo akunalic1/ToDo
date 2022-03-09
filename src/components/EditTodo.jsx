@@ -6,6 +6,7 @@ const EditTodo = ({ todo, setRefreshList, setOpenEdit, openEdit }) => {
   const handleCloseInputFields = () => {
     setOpenEdit(!openEdit);
   };
+
   const handleUpdateTodo = (
     title,
     description,
@@ -19,7 +20,6 @@ const EditTodo = ({ todo, setRefreshList, setOpenEdit, openEdit }) => {
         text: description,
         status: statusList.length === 0 ? "default" : statusList[0],
       });
-      console.log("nakon update ", response);
       setOpenEdit(false);
       setResponse(response);
       setStatusList([]);

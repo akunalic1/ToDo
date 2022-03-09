@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  faClose,
-  faPlus,
-  faAngleDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FilterTodo from "./FilterTodo";
 import CreateTodo from "./CreateTodo";

@@ -4,14 +4,15 @@ import server from "../api/server";
 
 const DeleteTodo = ({ todo, openDelete, setOpenDelete, setRefreshList }) => {
   const [response, setResponse] = useState({});
+
   const handleDelete = () => {
     const deleteTodo = async () => {
       const res = await server.delete(`/todos/${todo.id}`);
-      console.log(response);
       setResponse(res);
     };
     deleteTodo();
   };
+
   useEffect(() => {
     setRefreshList(true);
   }, [response]);
