@@ -1,3 +1,6 @@
+/* ======================
+*   delete container
+======================*/
 .delete-field {
   display: flex;
   flex-direction: column;
@@ -7,11 +10,9 @@
   width: 100%;
   padding: 0.7rem;
 }
-.buttons-delete-container {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
+/* ======================
+*   status borders
+======================*/
 .important-delete-border {
   border-left: 5px solid var(--important-green);
   border-bottom: 1px solid var(--important-green);
@@ -34,8 +35,14 @@
   border-bottom: 1px solid var(--low-priority-yellow);
   border-right: 1px solid var(--low-priority-yellow);
 }
-.hide {
-  display: none;
+
+/* ======================
+*   buttons
+======================*/
+.buttons-delete-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 .delete-yes,
 .delete-no {

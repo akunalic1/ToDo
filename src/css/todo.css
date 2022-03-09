@@ -1,5 +1,5 @@
 /* ======================
-*   whole todo container
+*    todo container
    ======================*/
 .todo-item {
   display: flex;
@@ -43,6 +43,9 @@
   height: 1rem;
   border: none;
 }
+/* ======================
+*   comment
+======================*/
 .comment-btn {
   position: relative;
 }

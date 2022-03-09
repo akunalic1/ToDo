@@ -1,3 +1,6 @@
+/* ======================
+*   sidebar container
+======================*/
 .sidebar {
   color: var(--dark-blue);
   height: 100vh;
@@ -12,6 +15,20 @@
   top: 0;
   bottom: 0;
 }
+
+/* ======================
+*   wrappers
+======================*/
+.collections,
+.productivity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ======================
+*   text
+======================*/
 .title {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
@@ -21,19 +38,16 @@
 .title {
   padding: 0.7rem 0rem;
 }
+
+/* ======================
+*   item
+======================*/
 .item,
 .collections-wrapper,
 .todo-statistics {
   border: none;
   padding: 0.7rem 0.7rem;
 }
-.collections,
-.productivity {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
 .item {
   font-size: large;
   display: flex;
@@ -48,11 +62,19 @@
   display: flex;
   justify-content: space-between;
 }
+
+/* ======================
+*   buttons
+======================*/
 .add-collection-button {
   border: 1px solid rgb(181, 181, 181);
   padding: 0 0.3rem;
   border-radius: 5px;
 }
+
+/* ======================
+*   input fields
+======================*/
 .create-collection-field {
   font-size: larger;
   width: 100%;

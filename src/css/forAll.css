@@ -1,3 +1,6 @@
+/* ======================
+*   custom properties
+======================*/
 :root {
   --light-green: #abd699;
   --light-lemon: #fce469;
@@ -12,6 +15,10 @@
 
   --font-spartan: "League Spartan", sans-serif;
 }
+
+/* ======================
+*   scrollbar
+======================*/
 *::-webkit-scrollbar {
   width: 5px;
   color: #0db4c0;
@@ -32,6 +39,9 @@
   color: var(--dark-blue);
 }
 
+/* ======================
+*   for all
+======================*/
 body {
   height: 100vh;
   background-color: rgb(238, 238, 232);
