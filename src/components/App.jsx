@@ -25,7 +25,7 @@ const App = () => {
         totalNumber={totalNumber}
       />
       {/*
-       * input field
+       * workspace
        */}
       <TodoWorkspace
         collectionForDelete={collectionForDelete}
@@ -36,10 +36,6 @@ const App = () => {
         setNumberOfDone={setNumberOfDone}
         setTotalNumber={setTotalNumber}
       />
-
-      {/*
-       * todolist
-       */}
     </>
   );
 };
