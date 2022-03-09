@@ -11,9 +11,11 @@ const FormContainer = ({
 }) => {
   const [addTaskClicked, setAddTaskClicked] = useState(false);
   const [showFilterList, setShowFilterList] = useState(false);
+
   const handleFilterListOnClick = (e) => {
     setShowFilterList(!showFilterList);
   };
+
   const handleCloseInputFields = (e) => {
     setAddTaskClicked(!addTaskClicked);
     setShowFilterList(false);

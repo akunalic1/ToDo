@@ -1,14 +1,12 @@
 import React, { createRef, useEffect, useState } from "react";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import server from "../api/server";
 
 const TodoForm = ({
   handleCloseInputFields,
   addTaskClicked,
   setRefreshList,
   todo,
-  setOpenEdit,
   onSubmit,
 }) => {
   /*
@@ -22,17 +20,6 @@ const TodoForm = ({
   const [errorMessage, setErrorMessage] = useState("");
   const [response, setResponse] = useState({});
 
-  /*
-   * functions
-   */
-  const setInitialStatusButtons = (statusBtnsRef) => {
-    Array.from(statusBtnsRef.current.children).forEach((button) => {
-      if (button.classList.contains(todo.status)) {
-        button.classList.remove("not-clicked");
-        setStatusList([todo.status]);
-      }
-    });
-  };
   /*
    * useEffect
    */
@@ -76,6 +63,18 @@ const TodoForm = ({
     else onSubmit(title, description, statusList, setStatusList, setResponse);
   };
 
+  /*
+   * functions
+   */
+  const setInitialStatusButtons = (statusBtnsRef) => {
+    Array.from(statusBtnsRef.current.children).forEach((button) => {
+      if (button.classList.contains(todo.status)) {
+        button.classList.remove("not-clicked");
+        setStatusList([todo.status]);
+      }
+    });
+  };
+
   const renderInputFields = () => {
     return (
       <form
@@ -101,7 +100,8 @@ const TodoForm = ({
             className="close-icon glass"
             onClick={(e) => {
               e.preventDefault();
-              handleCloseInputFields(e);
+              console.log(e);
+              if (e.keyCode !== 13) handleCloseInputFields(e);
             }}
           >
             <FontAwesomeIcon icon={faClose}></FontAwesomeIcon>

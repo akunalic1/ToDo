@@ -35,6 +35,7 @@ const Comment = ({ todo }) => {
   useEffect(() => {
     setCommentExist(todo.comment !== "");
   }, []);
+
   return (
     <div className="comment-wrapper">
       <button onClick={handleOpenComment} className="comment-btn">

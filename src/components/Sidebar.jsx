@@ -27,6 +27,9 @@ const Sidebar = ({
   const [collectionAdded, setCollectionAdded] = useState(false);
 
   const createCollectionFieldRef = createRef();
+  /*
+   * useEffect
+   */
   useEffect(() => {
     setCollection({ id: 1, collection: "Home" });
   }, []);
@@ -35,7 +38,6 @@ const Sidebar = ({
     const getCollections = async () => {
       const response = await server.get("/collections");
       if (response.status === 200) {
-        console.log(response);
         setCollections(response.data);
         setCollectionAdded(false);
       }
@@ -44,14 +46,13 @@ const Sidebar = ({
   }, [collectionAdded, collectionForDelete]);
 
   useEffect(() => {
-    console.log("collectionForEdit      ", collectionForEdit);
     if (
       Object.keys(collectionForEdit).length !== 0 &&
       collectionForEdit.id !== 1
     ) {
       setShowCollectionInputField(true);
       setCollectionInput(collectionForEdit.collection);
-      console.log("otvoren input za edit ", collectionInput);
+
       createCollectionFieldRef.current.classList.add("focus-field");
     } else {
       setCollectionInput("");
@@ -62,13 +63,10 @@ const Sidebar = ({
 
   useEffect(() => {
     const deleteCollection = async () => {
-      const res1 = await server.delete(
-        `/collections/${collectionForDelete.id}`
-      );
+      await server.delete(`/collections/${collectionForDelete.id}`);
 
       let allTodos = await server.get("/todos");
-      if (allTodos.status !== 200) console.log("Greska");
-      else
+      if (allTodos.status === 200)
         allTodos = allTodos.data.forEach((todo) => {
           if (todo.collection === collectionForDelete.id)
             server.delete(`/todos/${todo.id}`);
@@ -76,14 +74,17 @@ const Sidebar = ({
 
       setCollection({ id: 1, collection: "Home" });
       setCollectionForDelete("");
-      console.log("Obrsisano ", collectionForDelete);
     };
 
     if (collectionForDelete.collection) deleteCollection();
   }, [collectionForDelete]);
 
+  /*
+   * functions
+   */
   const submitCollectionName = (e) => {
     e.preventDefault();
+
     if (!collectionForEdit.collection) {
       const addCollection = async () => {
         const response = await server.post("/collections", {
@@ -92,6 +93,7 @@ const Sidebar = ({
         setCollectionAdded(true);
         console.log(response);
       };
+
       addCollection();
     } else {
       const editCollection = async () => {
@@ -104,7 +106,6 @@ const Sidebar = ({
         setCollectionForEdit({});
         setCollectionAdded(true);
         setCollection({ ...collectionForEdit, collection: collectionInput });
-        console.log(response);
       };
       editCollection();
     }
@@ -156,7 +157,7 @@ const Sidebar = ({
       </div>
     );
   };
-  console.log(showCollectionInputField);
+
   return (
     <div className="sidebar glass">
       <div className="glass collections-wrapper">

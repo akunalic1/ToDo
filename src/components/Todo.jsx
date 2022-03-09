@@ -13,7 +13,9 @@ const Todo = ({ todo, setRefreshList, refreshList }) => {
   const [openEdit, setOpenEdit] = useState(false);
   const [response, setResponse] = useState({});
   const todoRef = createRef();
-
+  /*
+   * event handlers
+   */
   const handleDeleteTodo = (e) => {
     setOpenDelete(!openDelete);
     setOpenEdit(false);
@@ -23,7 +25,6 @@ const Todo = ({ todo, setRefreshList, refreshList }) => {
     setOpenEdit(!openEdit);
   };
   const handleCheckboxClick = (e) => {
-    console.log(todoRef.current);
     if (e.target.checked) {
       todoRef.current.classList.add("completed-todo");
       const completeTodo = async () => {
@@ -31,7 +32,6 @@ const Todo = ({ todo, setRefreshList, refreshList }) => {
           completed: true,
         });
         setTodoCompleted(true);
-        console.log("todo changed", res.data);
         setResponse(res);
       };
       completeTodo();
@@ -42,15 +42,15 @@ const Todo = ({ todo, setRefreshList, refreshList }) => {
           completed: false,
         });
         setTodoCompleted(false);
-        console.log("todo changed", res.data);
         setResponse(res);
       };
       completeTodo();
     }
-    console.log("item clicked ", e.target.checked);
   };
+  /*
+   * useEffect
+   */
   useEffect(() => {
-    console.log("use effect za refresh");
     setRefreshList(true);
   }, [response]);
 

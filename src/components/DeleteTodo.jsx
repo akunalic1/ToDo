@@ -16,6 +16,7 @@ const DeleteTodo = ({ todo, openDelete, setOpenDelete, setRefreshList }) => {
   useEffect(() => {
     setRefreshList(true);
   }, [response]);
+
   return (
     <div
       className={`delete-field glass ${!openDelete ? "hide" : ""} ${
