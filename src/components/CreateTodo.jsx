@@ -8,7 +8,6 @@ const CreateTodo = ({
   addTaskClicked,
   handleCloseInputFields,
 }) => {
-  console.log("current collection unutar create todo", currentCollection);
   const handleUpdateTodo = (
     title,
     description,
