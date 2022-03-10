@@ -20,7 +20,6 @@ const App = () => {
         setCollectionForDelete={setCollectionForDelete}
         setCollectionForEdit={setCollectionForEdit}
         setCollection={setCollection}
-        currentCollection={collection}
         numberOfDone={numberOfDone}
         totalNumber={totalNumber}
       />
@@ -28,8 +27,6 @@ const App = () => {
        * workspace
        */}
       <TodoWorkspace
-        collectionForDelete={collectionForDelete}
-        collectionForEdit={collectionForEdit}
         setCollectionForDelete={setCollectionForDelete}
         setCollectionForEdit={setCollectionForEdit}
         collection={collection}

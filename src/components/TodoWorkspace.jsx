@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./../css/todoWorkspace.css";
 import "./../css/forAll.css";
 import TodoList from "./TodoList";
@@ -11,8 +11,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const TodoWorkspace = ({
-  collectionForDelete,
-  collectionForEdit,
   setCollectionForDelete,
   setCollectionForEdit,
   collection,

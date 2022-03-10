@@ -57,6 +57,7 @@ const TodoForm = ({
       setStatusList([e.target.value]);
     }
   };
+
   const handleSubmitForm = (e) => {
     e.preventDefault();
     if (!title.trim().length) setErrorMessage("Title cannot be empty");
@@ -140,6 +141,7 @@ const TodoForm = ({
       </form>
     );
   };
+
   return <>{renderInputFields()}</>;
 };
 

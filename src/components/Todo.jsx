@@ -1,4 +1,4 @@
-import { faComment, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState, createRef } from "react";
 import DeleteTodo from "./DeleteTodo";
@@ -7,7 +7,7 @@ import server from "../api/server";
 import Comment from "./Comment";
 import EditTodo from "./EditTodo";
 
-const Todo = ({ todo, setRefreshList, refreshList }) => {
+const Todo = ({ todo, setRefreshList }) => {
   const [openDelete, setOpenDelete] = useState(false);
   const [todoCompleted, setTodoCompleted] = useState(todo.completed);
   const [openEdit, setOpenEdit] = useState(false);

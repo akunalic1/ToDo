@@ -21,16 +21,6 @@
       "id": 78
     },
     {
-      "title": "novi task",
-      "text": "",
-      "createdAt": "3/3/2022, 7:56:47 PM",
-      "status": "important",
-      "comment": "",
-      "completed": false,
-      "collection": 1,
-      "id": 79
-    },
-    {
       "title": "taskic",
       "text": "",
       "createdAt": "3/9/2022, 9:16:04 PM",
@@ -39,6 +29,16 @@
       "completed": false,
       "collection": 2,
       "id": 80
+    },
+    {
+      "title": "task task task",
+      "text": "wow",
+      "createdAt": "3/10/2022, 8:50:07 AM",
+      "status": "not-a-priority",
+      "comment": "",
+      "completed": false,
+      "collection": 1,
+      "id": 81
     }
   ],
   "collections": [

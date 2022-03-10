@@ -9,7 +9,6 @@ import React, { createRef, useEffect, useState } from "react";
 import server from "../api/server";
 
 import "./../css/sidebar.css";
-import Todo from "./Todo";
 
 const Sidebar = ({
   collectionForDelete,
