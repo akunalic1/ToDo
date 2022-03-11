@@ -1,8 +1,8 @@
 # ToDo
-The single page web app built using React, CSS and HTML. Data is manipulated by Axios and stored inside json-server. 
+The single-page web app was built using React, CSS, and HTML. Data is manipulated by Axios and stored inside json-server.
 
 ## Functionalities:
-- Creating, deleting and editing task
+- Creating, deleting, and editing tasks
 - Marking task as complete
 - Filter task by status:
     - (not)completed
@@ -10,7 +10,7 @@ The single page web app built using React, CSS and HTML. Data is manipulated by 
     - urgent
     - not a priority
     - other
-- Adding/removing comment from task
+- Adding/removing the comment from the task
 - Creating/deleting collections for tasks
 - Showing productivity in every collection
 
