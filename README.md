@@ -4,7 +4,7 @@ The single-page web app was built using React, CSS, and HTML. Data is manipulate
 ## Functionalities:
 - Creating, deleting, and editing tasks
 - Marking task as complete
-- Filter task by status:
+- Filtering tasks by status:
     - (not)completed
     - important
     - urgent
