@@ -11,7 +11,7 @@ The single-page web app was built using React, CSS, and HTML. Data is manipulate
     - not a priority
     - other
 - Adding/removing the comment from the task
-- Creating/deleting collections for tasks
+- Creating/deleting/editing collections for tasks
 - Showing productivity in every collection
 
 # Getting Started with Create React App
