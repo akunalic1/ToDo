@@ -1,5 +1,5 @@
 # ToDo
-The single-page web app was built using React, CSS, and HTML. Data is manipulated by Axios and stored inside json-server.
+The ToDo app is a single-page web app that displays all existing tasks arranged by collections placed in a sidebar. It is based on the principle of storing data inside a JSON server with Axios. It is easy to use and does not require authentication.
 
 ## Functionalities:
 - Creating, deleting, and editing tasks
