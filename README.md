@@ -28,12 +28,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Instalation
 
-1.Clone the repository
+1. Clone the repository
 
 ```sh
 git clone https://github.com/akunalic1/ToDo.git
 ```
-3. Install NPM packages
+2. Install NPM packages
 
 ```sh
 npm install
