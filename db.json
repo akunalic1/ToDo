@@ -1,44 +1,44 @@
 {
   "todos": [
     {
-      "title": "glupy",
+      "title": "Task 1",
       "text": "",
-      "createdAt": "3/2/2022, 7:14:34 PM",
+      "createdAt": "3/12/2022, 10:28:50 AM",
       "status": "urgent",
       "comment": "",
       "completed": false,
       "collection": 1,
-      "id": 58
+      "id": 1
     },
     {
-      "title": "Jel radis??",
+      "title": "Task 2",
       "text": "",
-      "createdAt": "3/3/2022, 7:29:22 PM",
-      "status": "important",
-      "comment": "",
-      "completed": true,
-      "collection": 1,
-      "id": 78
-    },
-    {
-      "title": "taskic",
-      "text": "",
-      "createdAt": "3/9/2022, 9:16:04 PM",
-      "status": "urgent",
-      "comment": "jeje",
-      "completed": false,
-      "collection": 2,
-      "id": 80
-    },
-    {
-      "title": "task task task",
-      "text": "wow",
-      "createdAt": "3/10/2022, 8:50:07 AM",
+      "createdAt": "3/12/2022, 10:28:56 AM",
       "status": "not-a-priority",
       "comment": "",
       "completed": false,
       "collection": 1,
-      "id": 81
+      "id": 2
+    },
+    {
+      "title": "Task 3",
+      "text": "",
+      "createdAt": "3/12/2022, 10:30:10 AM",
+      "status": "important",
+      "comment": "",
+      "completed": false,
+      "collection": 1,
+      "id": 3
+    },
+    {
+      "title": "Im done",
+      "text": "Some description",
+      "createdAt": "3/12/2022, 10:30:32 AM",
+      "status": "default",
+      "comment": "",
+      "completed": true,
+      "collection": 1,
+      "id": 4
     }
   ],
   "collections": [
@@ -47,7 +47,7 @@
       "collection": "Home"
     },
     {
-      "collection": "Zmzm Ym",
+      "collection": "Personal",
       "id": 2
     }
   ]

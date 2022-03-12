@@ -100,3 +100,6 @@
 .completed-todo button {
   background-color: gray !important;
 }
+.hide {
+  display: none;
+}
